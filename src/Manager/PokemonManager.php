@@ -4,12 +4,6 @@ use App\Manager\ManagerInterface;
 
 class PokemonManager implements ManagerInterface
 {
-
-    public function hydrate(array $datas)
-    {
-        // TODO: Implement hydrate() method.
-    }
-
     public function findOne()
     {
         // TODO: Implement findOne() method.

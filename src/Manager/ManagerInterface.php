@@ -12,7 +12,6 @@ interface ManagerInterface {
      * @param array $datas
      * @return mixed
      */
-    public function hydrate(array $datas);
 
     /**
      * Récupérer une entité à partir de son id ou de son nameSlug
