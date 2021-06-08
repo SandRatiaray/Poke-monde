@@ -1,1 +1,4 @@
 .env
+
+#workspace
+.idea/workspace.xml
