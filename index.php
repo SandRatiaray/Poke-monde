@@ -3,6 +3,6 @@ require_once 'vendor/autoload.php';
 
 use Vendor\database\Database;
 
-$database = new Database('localhost', 3306, 'root', '');
+$database = new Database();
 
 var_dump($database);
