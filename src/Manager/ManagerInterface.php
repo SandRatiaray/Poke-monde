@@ -8,13 +8,6 @@ namespace App\Manager;
  */
 interface ManagerInterface {
     /**
-     * Hydrater une entité (array => entity)
-     * @param array $datas
-     * @return mixed
-     */
-    public function hydrate(array $datas);
-
-    /**
      * Récupérer une entité à partir de son id ou de son nameSlug
      * @return mixed
      */
