@@ -8,10 +8,10 @@ namespace App\Manager;
  */
 interface ManagerInterface {
     /**
-     * Récupérer une entité à partir de son id ou de son nameSlug
+     * Récupérer une entité à partir d'un attribut unique d'une entité
      * @return mixed
      */
-    public function findOne();
+    public function findOne($entity);
 
     /**
      * Récupérer la première entrée d'une entité
