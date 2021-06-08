@@ -27,7 +27,6 @@ interface ManagerInterface {
 
     /**
      * Ajouter une nouvelle entité
-     * @return mixed
      */
     public function add($entity);
 
