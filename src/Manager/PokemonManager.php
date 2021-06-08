@@ -25,7 +25,7 @@ class PokemonManager implements ManagerInterface
         // TODO: Implement add() method.
     }
 
-    public function edit($enity)
+    public function edit($entity)
     {
         // TODO: Implement edit() method.
     }
