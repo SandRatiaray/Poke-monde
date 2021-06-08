@@ -6,5 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controller\\PokemonController' => $baseDir . '/src/Controller/PokemonController.php',
+    'App\\Entity\\Pokemon' => $baseDir . '/src/Entity/Pokemon.php',
+    'App\\Manager\\ManagerInterface' => $baseDir . '/src/Manager/ManagerInterface.php',
+    'App\\Manager\\PokemonManager' => $baseDir . '/src/Manager/PokemonManager.php',
+    'App\\Utils\\DatabaseHandler' => $baseDir . '/src/Utils/DatabaseHandler.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );

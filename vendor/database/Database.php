@@ -1,7 +1,5 @@
 <?php
-namespace vendor\database;
-
-use PDO;
+namespace Vendor\database;
 
 /**
  * Class Database
@@ -61,14 +59,10 @@ class Database
      * @throws \Exception
      */
     private function connection () {
-        try{
-            $this->db = new \PDO("mysql:host={$this->getDbHost()}:{$this->getDbPort()};dbname={$this->getDbName()}",
-                "{$this->getDbUser()}", "{$this->getDbPort()}");
-            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-        }catch (\Exception $exception) {
-            throw new \Exception('La connexion à la base de données à échoué');
-        }
+        $this->db = new \PDO("mysql:host={$this->getDbHost()}:{$this->getDbPort()};dbname={$this->getDbName()}",
+            "{$this->getDbUser()}", "{$this->getDbPort()}");
+        $this->db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        $this->db->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
     }
 
 

@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit5edeb43f1c9ce6d69208416a85213fd5
 {
     public static $prefixLengthsPsr4 = array (
+        'V' => 
+        array (
+            'Vendor\\' => 7,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -14,6 +18,10 @@ class ComposerStaticInit5edeb43f1c9ce6d69208416a85213fd5
     );
 
     public static $prefixDirsPsr4 = array (
+        'Vendor\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/vendor',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
@@ -21,6 +29,11 @@ class ComposerStaticInit5edeb43f1c9ce6d69208416a85213fd5
     );
 
     public static $classMap = array (
+        'App\\Controller\\PokemonController' => __DIR__ . '/../..' . '/src/Controller/PokemonController.php',
+        'App\\Entity\\Pokemon' => __DIR__ . '/../..' . '/src/Entity/Pokemon.php',
+        'App\\Manager\\ManagerInterface' => __DIR__ . '/../..' . '/src/Manager/ManagerInterface.php',
+        'App\\Manager\\PokemonManager' => __DIR__ . '/../..' . '/src/Manager/PokemonManager.php',
+        'App\\Utils\\DatabaseHandler' => __DIR__ . '/../..' . '/src/Utils/DatabaseHandler.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 

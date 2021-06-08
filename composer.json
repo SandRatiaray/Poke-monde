@@ -1,10 +1,12 @@
 {
   "autoload": {
     "psr-4": {
-      "App\\": "src/"
+      "App\\": "src/",
+      "Vendor\\": "vendor/"
     }
   },
   "config": {
+    "optimize-autoloader": true,
     "platform": {
       "php": "7.4"
     }
