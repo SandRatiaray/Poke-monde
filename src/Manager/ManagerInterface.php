@@ -21,6 +21,12 @@ interface ManagerInterface {
     public function findOne();
 
     /**
+     * Récupérer la première entrée d'une entité
+     * @return mixed
+     */
+    public function findFirst();
+
+    /**
      * Récupérer toutes les entrées d'une entité
      * @return mixed
      */
@@ -43,4 +49,5 @@ interface ManagerInterface {
      * @return mixed
      */
     public function delete(int $id);
+
 }

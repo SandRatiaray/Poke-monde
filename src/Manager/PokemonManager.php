@@ -34,4 +34,9 @@ class PokemonManager implements ManagerInterface
     {
         // TODO: Implement delete() method.
     }
+
+    public function findFirst()
+    {
+        // TODO: Implement findFirst() method.
+    }
 }

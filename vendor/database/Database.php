@@ -39,9 +39,9 @@ class Database
      */
     private $db;
 
-    public function __construct(string $dbName, string $dbHost, int $dbPort, string $dbUser, string $dbPassword){
+    public function __construct(string $dbHost, int $dbPort, string $dbUser, string $dbPassword){
         // Init parameters
-        $this->setDbName($dbName);
+        $this->setDbName('pokemonde');
         $this->setDbHost($dbHost);
         $this->setDbPort($dbPort);
         $this->setDbUser($dbUser);
@@ -57,7 +57,7 @@ class Database
     }
 
     /**
-     * Database connection
+     * Database connection (mariadb ou mysql)
      * @throws \Exception
      */
     private function connection () {
