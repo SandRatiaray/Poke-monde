@@ -20,17 +20,17 @@ class PokemonManager implements ManagerInterface
         // TODO: Implement findAll() method.
     }
 
-    public function add()
+    public function add($entity)
     {
         // TODO: Implement add() method.
     }
 
-    public function edit()
+    public function edit($entity)
     {
         // TODO: Implement edit() method.
     }
 
-    public function delete(int $id)
+    public function delete($entity)
     {
         // TODO: Implement delete() method.
     }

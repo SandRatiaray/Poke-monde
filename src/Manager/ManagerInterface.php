@@ -8,13 +8,6 @@ namespace App\Manager;
  */
 interface ManagerInterface {
     /**
-     * Hydrater une entité (array => entity)
-     * @param array $datas
-     * @return mixed
-     */
-    public function hydrate(array $datas);
-
-    /**
      * Récupérer une entité à partir de son id ou de son nameSlug
      * @return mixed
      */
@@ -36,18 +29,18 @@ interface ManagerInterface {
      * Ajouter une nouvelle entité
      * @return mixed
      */
-    public function add();
+    public function add($entity);
 
     /**
      * Éditer une entité à partir de son id ou de son nameSlug
      * @return mixed
      */
-    public function edit();
+    public function edit($entity);
 
     /**
      * Supprimer une entité à partir de son id ou de son nameSlug
      * @return mixed
      */
-    public function delete(int $id);
+    public function delete($entity);
 
 }
