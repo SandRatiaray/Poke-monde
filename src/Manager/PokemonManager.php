@@ -10,7 +10,7 @@ class PokemonManager implements ManagerInterface
         // TODO: Implement hydrate() method.
     }
 
-    public function findOne()
+    public function findOne($entity)
     {
         // TODO: Implement findOne() method.
     }
