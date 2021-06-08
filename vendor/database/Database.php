@@ -58,8 +58,7 @@ class Database
 
     /**
      * Database connection
-     *
-     * @return \Exception
+     * @throws \Exception
      */
     private function connection () {
         try{
@@ -68,7 +67,7 @@ class Database
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         }catch (\Exception $exception) {
-            return new \Exception('La connexion à la base de données à échoué');
+            throw new \Exception('La connexion à la base de données à échoué');
         }
     }
 
