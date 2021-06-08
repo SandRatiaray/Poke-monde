@@ -6,34 +6,66 @@ namespace App\Manager;
 
 class PokemonRarityManager implements ManagerInterface
 {
-    public function hydrate(array $datas)
+    private \PDO $db;
+
+    public function __construct ()
     {
-        // TODO: Implement hydrate() method.
+        $db = new Database();
+        $this->setDb($db->getDb());
     }
 
-    public function findOne()
+    private function setDb (\PDO $db)
+    {
+        $this->db = $db;
+    }
+
+    public function findOne($entity)
     {
         // TODO: Implement findOne() method.
+        $statement = "SELECT * FROM PokemonRarity WHERE id = :id LIMIT 1";
+        $prepare = $this->db->prepare($statement);
+        $prepare->bindValue(":name", $entity->getName());
+        $prepare->execute();
+        return $prepare->fetch(\PDO::FETCH_CLASS, PokemonRarity::class);
     }
 
     public function findAll()
     {
-        // TODO: Implement findAll() method.
+        $query = $this->db->query("SELECT * FROM PokemonRarity");
+        return $query->fetchAll(\PDO::FETCH_CLASS, PokemonRarity::class);
     }
 
-    public function add()
+    public function add($entity)
     {
-        // TODO: Implement add() method.
+        $statement = "INSERT INTO PokemonRarity (name, nameSlug) 
+        VALUES (:name , :nameSlug )";
+
+        $prepare = $this->db->prepare($statement);
+        $prepare->bindValue(":name", $entity->getName());
+        $prepare->bindValue(":nameSlug", $entity->getNameSLug());
+        $prepare->execute();
     }
 
-    public function edit()
+
+    public function edit($entity)
     {
         // TODO: Implement edit() method.
+        $statement = "UPDATE PokemonRarity SET 
+                name = :name
+                WHERE id=:id LIMIT 1";
+        $prepare = $this->db->prepare($statement);
+        $prepare->bindValue(":name", $entity->getName());
+        $prepare->bindValue(":id", $entity->getId());
+        $prepare->execute();
     }
 
-    public function delete(int $id)
+    public function delete($entity)
     {
         // TODO: Implement delete() method.
+        $sql = 'DELETE FROM PokemonRarity WHERE id = :id';
+        $prepare = $this->db->prepare($sql);
+        $prepare->bindValue(":id", $entity->getId());
+        $prepare->execute;
     }
 
     public function findFirst()
