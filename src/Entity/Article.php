@@ -1,7 +1,5 @@
 <?php
 
-use PhpParser\Node\Name;
-
 namespace App\Entity;
 
 class Article

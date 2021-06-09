@@ -7,7 +7,7 @@ use App\Entity\Article;
 use Vendor\database\Database;
 use App\Manager\ManagerInterface;
 
-class ArticlesManager implements ManagerInterface
+class ArticleManager implements ManagerInterface
 {
     private \PDO $db;
 

@@ -6,7 +6,7 @@ use Vendor\database\Database;
 use App\Manager\ManagerInterface;
 
 
-class donsManager implements ManagerInterface
+class DonManager implements ManagerInterface
 {
 
     private \PDO $db;
