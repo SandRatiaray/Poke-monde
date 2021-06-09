@@ -9,7 +9,7 @@ class ArticlesManager implements ManagerInterface
 
     public function findOne($entity)
     {
-        $stmt = "SELECT * FROM Article WHERE id = :id";
+        $stmt = "SELECT * FROM article WHERE id = :id LIMIT 1";
         $prepare = $this->db->prepare($stmt);
         $prepare->bindValue(":id", $entity->getId());
         $prepare->execute;
@@ -47,7 +47,7 @@ class ArticlesManager implements ManagerInterface
 
     public function delete($entity)
     {
-        $stmt = "DELETE FROM Article WHERE id = :id";
+        $stmt = "DELETE FROM article WHERE id = :id";
         $prepare = $this->db->prepare($stmt);
         $prepare->bindValue(":id", $entity->getId());
         $prepare->execute;
@@ -55,6 +55,8 @@ class ArticlesManager implements ManagerInterface
 
     public function findFirst()
     {
-        // TODO: Implement findFirst() method.
+        $stmt = "SELECT * FROM article ORDER BY id LIMIT 1";
+        $prepare = $this->db->prepare($stmt);
+        $prepare->execute;
     }
 }
