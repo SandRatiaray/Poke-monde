@@ -3,30 +3,11 @@ namespace App\Manager;
 use App\Entity\Pokemon;
 use App\Manager\ManagerInterface;
 use Vendor\database\Database;
+use Vendor\database\Manager;
 
-class PokemonManager implements ManagerInterface
+class PokemonManager extends Manager implements ManagerInterface
 {
-    private \PDO $db;
     private $table = "pokemon";
-
-    public function __construct()
-    {
-        $db = new Database();
-        $this->setDb($db->getDb());
-    }
-
-    private function setDb (\PDO $db){
-        $this->db = $db;
-    }
-
-    /**
-     * @return void
-     * on vide la variable de base de données
-     */
-    public function __destruct()
-    {
-        $db = null;
-    }
 
     /**
      * @param $entity

@@ -5,26 +5,10 @@ namespace App\Manager;
 use App\Entity\PokemonRace;
 use App\Manager\ManagerInterface;
 use Vendor\database\Database;
+use Vendor\database\Manager;
 
-class PokemonRaceManager implements ManagerInterface {
-
-    private \PDO $db;
+class PokemonRaceManager extends Manager implements ManagerInterface {
     private $table = "pokemonrace";
-
-
-    public function __construct(){
-        $db = new Database();
-        $this->setDb($db->getDb());
-    }
-
-    /**
-     * @return void
-     * on vide la variable de base de données
-     */
-    public function __destruct()
-    {
-        $db = null;
-    }
 
     private function setDb (\PDO $db){
         $this->db = $db;
