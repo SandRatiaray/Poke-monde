@@ -6,22 +6,10 @@ namespace App\Manager;
 use App\Entity\Article;
 use Vendor\database\Database;
 use App\Manager\ManagerInterface;
+use Vendor\database\Manager;
 
-class ArticleManager implements ManagerInterface
+class ArticleManager extends Manager implements ManagerInterface
 {
-    private \PDO $db;
-
-    public function __construct()
-    {
-        $db = new Database();
-        $this->setDb($db->getDb());
-    }
-
-    private function setDb(\PDO $db)
-    {
-        $this->db = $db;
-    }
-
     /**
      * Find one Article by id
      * @param Article $entity

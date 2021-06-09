@@ -4,24 +4,11 @@ namespace App\Manager;
 
 use Vendor\database\Database;
 use App\Manager\ManagerInterface;
+use Vendor\database\Manager;
 
 
-class DonManager implements ManagerInterface
+class DonManager extends Manager implements ManagerInterface
 {
-
-    private \PDO $db;
-
-    public function __construct()
-    {
-        $db = new Database();
-        $this->setDb($db->getDb());
-    }
-
-    private function setDb(\PDO $db)
-    {
-        $this->db = $db;
-    }
-
     /**
      * Find one donation by id
      * @param Don $entity
@@ -52,7 +39,7 @@ class DonManager implements ManagerInterface
      */
     public function add($entity)
     {
-        $statement = "INSERT INTO don (amount, user) 
+        $statement = "INSERT INTO don (amount, user_id) 
         VALUES (:amount, :user)";
 
         $prepare = $this->db->prepare($statement);
