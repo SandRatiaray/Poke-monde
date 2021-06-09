@@ -1,42 +1,94 @@
 <?php
 namespace App\Manager;
+use App\Entity\Product;
 use App\Manager\ManagerInterface;
+use Vendor\database\Database;
 
 class ProductManager implements ManagerInterface
 {
 
-    public function add()
+    private \PDO $db;
+
+    public function __construct ()
     {
-        // TODO: Implement add() method.
+        $db = new Database();
+        $this->setDb($db->getDb());
     }
 
-    public function edit()
+    private function setDb (\PDO $db)
     {
-        // TODO: Implement edit() method.
+        $this->db = $db;
     }
 
-    public function delete(int $id)
+    /**
+     *
+     * @param Product $entity
+     * @return mixed
+     */
+
+
+    public function add($entity)
     {
-        // TODO: Implement delete() method.
+        $statement = "INSERT INTO user (name, nameSlug, stock, category, price, description) 
+                        VALUES (:name, :nameSlug, :stock, :category, :price, :description)";
+
+        $prepare = $this->db->prepare($statement);
+        $prepare->bindValue(":name", $entity->getName());
+        $prepare->bindValue(":nameSlug", $entity->getNameSlug());
+        $prepare->bindValue(":stock", $entity->getStock());
+        $prepare->bindValue(":category", $entity->getCategory());
+        $prepare->bindValue(":price", $entity->getPrice());
+        $prepare->bindValue(":description", $entity->getDescription());
+        $prepare->execute();
     }
 
-    public function hydrate(array $datas)
+    public function edit($entity)
     {
-        // TODO: Implement hydrate() method.
+        $statement = "UPDATE product SET 
+                name = :name,
+                nameSlug = :nameSlug,
+                stock = :stock,
+                category = :category,
+                price = :price,
+                description = :description";
+        $prepare = $this->db->prepare($statement);
+        $prepare->bindValue(":name", $entity->getName());
+        $prepare->bindValue(":nameSlug", $entity->getNameSlug());
+        $prepare->bindValue(":stock", $entity->getStock());
+        $prepare->bindValue(":category", $entity->getCategory());
+        $prepare->bindValue(":price", $entity->getPrice());
+        $prepare->bindValue(":description", $entity->getDescription());
+        $prepare->execute();
     }
 
-    public function findOne()
+    public function delete(int $id, $entity)
     {
-        // TODO: Implement findOne() method.
+        $statement = "DELETE FROM product WHERE id = :id";
+        $prepare = $this->db->prepare($statement);
+        $prepare->bindValue(":id", $entity->getId());
+        $prepare->execute();
+    }
+
+
+    public function findOne($entity)
+    {
+        $statement = "SELECT * FROM product WHERE id = :id LIMIT 1";
+        $prepare = $this->db->prepare($statement);
+        $prepare->bindValue(":name", $entity->getName());
+        $prepare->execute();
+        return $prepare->fetch(\PDO::FETCH_CLASS, product::class);
     }
 
     public function findFirst()
     {
         // TODO: Implement findFirst() method.
+        $query = $this->db->query( "SELECT * FROM product ORDER BY id = :id ASC LIMIT 1");
+        return $query->fetch(\PDO::FETCH_CLASS, product::class);
     }
 
     public function findAll()
     {
-        // TODO: Implement findAll() method.
+        $query = $this->db->query("SELECT * FROM product");
+        return $query->fetchAll(\PDO::FETCH_CLASS, product::class);
     }
 }

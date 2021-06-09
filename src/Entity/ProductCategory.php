@@ -68,7 +68,19 @@ class ProductCategory
      */
     private $nameSlug;
 
-
+    /**
+     * Hydrate
+     * @param array $product
+     */
+    public function hydrate(array $product)
+    {
+        foreach ($product as $key => $value) {
+            $method = "set" . ucfirst($key);
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
+    }
 
 }
 

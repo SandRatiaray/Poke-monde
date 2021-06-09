@@ -5,38 +5,54 @@ use App\Manager\ManagerInterface;
 class ProductCategoryManager implements ManagerInterface
 {
 
-    public function add()
+    public function add($entity)
     {
-        // TODO: Implement add() method.
+        $statement = "INSERT INTO user (name, nameSlug) 
+                        VALUES (:name, :nameSlug)";
+
+        $prepare = $this->db->prepare($statement);
+        $prepare->bindValue(":name", $entity->getName());
+        $prepare->bindValue(":nameSlug", $entity->getNameSlug());
+        $prepare->execute();
     }
 
-    public function edit()
+    public function edit($entity)
     {
-        // TODO: Implement edit() method.
+        $statement = "UPDATE productcategory SET 
+                name = :name,
+                nameSlug = :nameSlug,";
+        $prepare = $this->db->prepare($statement);
+        $prepare->bindValue(":name", $entity->getName());
+        $prepare->bindValue(":nameSlug", $entity->getNameSlug());
+        $prepare->execute();
     }
 
-    public function delete(int $id)
+    public function delete(int $id,$entity)
     {
-        // TODO: Implement delete() method.
+        $statement = "DELETE FROM productcategory WHERE id = :id";
+        $prepare = $this->db->prepare($statement);
+        $prepare->bindValue(":id", $entity->getId());
+        $prepare->execute();
     }
 
-    public function hydrate(array $datas)
+    public function findOne($entity)
     {
-        // TODO: Implement hydrate() method.
-    }
-
-    public function findOne()
-    {
-        // TODO: Implement findOne() method.
+        $statement = "SELECT * FROM productcategory WHERE id = :id LIMIT 1";
+        $prepare = $this->db->prepare($statement);
+        $prepare->bindValue(":name", $entity->getName());
+        $prepare->execute();
+        return $prepare->fetch(\PDO::FETCH_CLASS, productcategory::class);
     }
 
     public function findFirst()
     {
-        // TODO: Implement findFirst() method.
+        $query = $this->db->query( "SELECT * FROM productcategory ORDER BY id = :id ASC LIMIT 1");
+        return $query->fetch(\PDO::FETCH_CLASS, productcategory::class);
     }
 
     public function findAll()
     {
-        // TODO: Implement findAll() method.
+        $query = $this->db->query("SELECT * FROM productcategory");
+        return $query->fetchAll(\PDO::FETCH_CLASS, productcategory::class);
     }
 }
