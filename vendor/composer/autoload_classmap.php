@@ -12,4 +12,7 @@ return array(
     'App\\Manager\\PokemonManager' => $baseDir . '/src/Manager/PokemonManager.php',
     'App\\Utils\\DatabaseHandler' => $baseDir . '/src/Utils/DatabaseHandler.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Vendor\\database\\Database' => $vendorDir . '/database/Database.php',
+    'Vendor\\database\\Statements' => $vendorDir . '/database/Statements.php',
+    'Vendor\\dotenv\\DotEnv' => $vendorDir . '/dotenv/DotEnv.php',
 );
