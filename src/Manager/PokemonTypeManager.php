@@ -5,23 +5,11 @@ namespace App\Manager;
 
 use Vendor\database\Database;
 use App\Entity\PokemonType;
+use Vendor\database\Manager;
 
-class PokemonTypeManager implements ManagerInterface
+class PokemonTypeManager extends Manager implements ManagerInterface
 {
-    private \PDO $db;
-
-    public function __construct ()
-    {
-        $db = new Database();
-        $this->setDb($db->getDb());
-    }
-
-    private function setDb (\PDO $db)
-    {
-        $this->db = $db;
-    }
-
-    /**
+     /**
      * @param $entity
      * @return mixed
      *
@@ -29,7 +17,6 @@ class PokemonTypeManager implements ManagerInterface
      */
     public function findOne($entity)
     {
-        // TODO: Implement findOne() method.
         $statement = "SELECT * FROM pokemonType WHERE id = :id LIMIT 1";
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":name", $entity->getName());
@@ -105,7 +92,6 @@ class PokemonTypeManager implements ManagerInterface
      */
     public function findFirst()
     {
-        // TODO: Implement findFirst() method.
         $query = $this->db->query( "SELECT * FROM pokemonType ORDER BY id = :id ASC LIMIT 1");
         return $query->fetch(\PDO::FETCH_CLASS, PokemonType::class);
     }

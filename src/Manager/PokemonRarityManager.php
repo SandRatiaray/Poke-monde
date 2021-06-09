@@ -5,22 +5,10 @@ namespace App\Manager;
 
 use Vendor\database\Database;
 use App\Entity\PokemonRarity;
+use Vendor\database\Manager;
 
-class PokemonRarityManager implements ManagerInterface
+class PokemonRarityManager extends Manager implements ManagerInterface
 {
-    private \PDO $db;
-
-    public function __construct ()
-    {
-        $db = new Database();
-        $this->setDb($db->getDb());
-    }
-
-    private function setDb (\PDO $db)
-    {
-        $this->db = $db;
-    }
-
     /**
      * @param $entity
      * @return mixed
@@ -29,7 +17,6 @@ class PokemonRarityManager implements ManagerInterface
      */
     public function findOne($entity)
     {
-        // TODO: Implement findOne() method.
         $statement = "SELECT * FROM pokemonRarity WHERE id = :id LIMIT 1";
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":name", $entity->getName());
@@ -72,7 +59,6 @@ class PokemonRarityManager implements ManagerInterface
      */
     public function edit($entity)
     {
-        // TODO: Implement edit() method.
         $statement = "UPDATE pokemonRarity SET 
                 name = :name
                 WHERE id=:id LIMIT 1";
@@ -90,7 +76,6 @@ class PokemonRarityManager implements ManagerInterface
      */
     public function delete($entity)
     {
-        // TODO: Implement delete() method.
         $sql = 'DELETE FROM pokemonRarity WHERE id = :id';
         $prepare = $this->db->prepare($sql);
         $prepare->bindValue(":id", $entity->getId());
@@ -104,7 +89,6 @@ class PokemonRarityManager implements ManagerInterface
      */
     public function findFirst()
     {
-        // TODO: Implement findFirst() method.
         $query = $this->db->query( "SELECT * FROM pokemonRarity ORDER BY id = :id ASC LIMIT 1");
         return $query->fetch(\PDO::FETCH_CLASS, PokemonRarity::class);
     }
