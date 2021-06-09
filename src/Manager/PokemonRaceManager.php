@@ -41,7 +41,7 @@ class PokemonRaceManager implements ManagerInterface {
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":id", $entity->getId());
         $prepare->execute();
-        return $prepare->fetch(\PDO::FETCH_CLASS, Contact::class);
+        return $prepare->fetch(\PDO::FETCH_CLASS, PokemonRace::class);
     }
 
 

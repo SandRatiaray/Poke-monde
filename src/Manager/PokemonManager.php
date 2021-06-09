@@ -62,8 +62,7 @@ class PokemonManager implements ManagerInterface
      */
     public function add($entity)
     {
-        // TODO: Implement add() method.
-        $statement = "INSERT INTO $this->table (name, nameSlug, type, race, weight, size, rarity, image, available) VALUE (:name, :nameSlug, :type, :race, :weight, :size, :rarity, :image, :available)";
+        $statement = "INSERT INTO $this->table (name, nameSlug, type_id, race_id, weight, size, rarity_id, image, available) VALUE (:name, :nameSlug, :type, :race, :weight, :size, :rarity, :image, :available)";
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":name", $entity->getName());
         $prepare->bindValue(":nameSlug", $entity->getNameSlug());
@@ -89,11 +88,11 @@ class PokemonManager implements ManagerInterface
         $statement = "UPDATE $this->table 
                         SET name = :name, 
                         nameSlug = :nameSlug, 
-                        type = :type, 
-                        race = :race, 
+                        type_id = :type, 
+                        race_id = :race, 
                         weight = :weight, 
                         size = :size, 
-                        rarity = :rarity, 
+                        rarity_id = :rarity, 
                         image = :image, 
                         available = :available
                         WHERE id = :id";
