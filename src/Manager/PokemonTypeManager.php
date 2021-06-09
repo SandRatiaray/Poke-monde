@@ -70,13 +70,10 @@ class PokemonTypeManager implements ManagerInterface
         $prepare->execute;
     }
 
-    public function findFirst($entity)
+    public function findFirst()
     {
         // TODO: Implement findFirst() method.
-        $statement = "SELECT * FROM PokemonType ORDER BY id = :id ASC LIMIT 1";
-        $prepare = $this->db->prepare($statement);
-        $prepare->bindValue(":name", $entity->getName());
-        $prepare->execute();
-        return $prepare->fetch(\PDO::FETCH_CLASS, PokemonType::class);
+        $query = $this->db->query( "SELECT * FROM PokemonType ORDER BY id = :id ASC LIMIT 1");
+        return $query->fetch(\PDO::FETCH_CLASS, PokemonType::class);
     }
 }
