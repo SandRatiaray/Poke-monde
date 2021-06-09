@@ -4,7 +4,7 @@
 namespace App\Manager;
 
 use Vendor\database\Database;
-
+use App\Entity\PokemonType;
 
 class PokemonTypeManager implements ManagerInterface
 {
@@ -30,7 +30,7 @@ class PokemonTypeManager implements ManagerInterface
     public function findOne($entity)
     {
         // TODO: Implement findOne() method.
-        $statement = "SELECT * FROM PokemonType WHERE id = :id LIMIT 1";
+        $statement = "SELECT * FROM pokemonType WHERE id = :id LIMIT 1";
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":name", $entity->getName());
         $prepare->execute();
@@ -43,7 +43,7 @@ class PokemonTypeManager implements ManagerInterface
      */
     public function findAll()
     {
-        $query = $this->db->query("SELECT * FROM PokemonType");
+        $query = $this->db->query("SELECT * FROM pokemonType");
         return $query->fetchAll(\PDO::FETCH_CLASS, PokemonType::class);
     }
 
@@ -55,7 +55,7 @@ class PokemonTypeManager implements ManagerInterface
      */
     public function add($entity)
     {
-        $statement = "INSERT INTO PokemonType (name, nameSlug) 
+        $statement = "INSERT INTO pokemonType (name, nameSlug) 
         VALUES (:name , :nameSlug )";
 
         $prepare = $this->db->prepare($statement);
@@ -74,7 +74,7 @@ class PokemonTypeManager implements ManagerInterface
     public function edit($entity)
     {
         // TODO: Implement edit() method.
-        $statement = "UPDATE PokemonType SET 
+        $statement = "UPDATE pokemonType SET 
                 name = :name
                 WHERE id=:id LIMIT 1";
         $prepare = $this->db->prepare($statement);
@@ -92,7 +92,7 @@ class PokemonTypeManager implements ManagerInterface
     public function delete($entity)
     {
         // TODO: Implement delete() method.
-        $sql = 'DELETE FROM PokemonType WHERE id = :id';
+        $sql = 'DELETE FROM pokemonType WHERE id = :id';
         $prepare = $this->db->prepare($sql);
         $prepare->bindValue(":id", $entity->getId());
         $prepare->execute;
@@ -106,7 +106,7 @@ class PokemonTypeManager implements ManagerInterface
     public function findFirst()
     {
         // TODO: Implement findFirst() method.
-        $query = $this->db->query( "SELECT * FROM PokemonType ORDER BY id = :id ASC LIMIT 1");
+        $query = $this->db->query( "SELECT * FROM pokemonType ORDER BY id = :id ASC LIMIT 1");
         return $query->fetch(\PDO::FETCH_CLASS, PokemonType::class);
     }
 }

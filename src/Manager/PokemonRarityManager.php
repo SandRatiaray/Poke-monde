@@ -3,6 +3,8 @@
 
 namespace App\Manager;
 
+use Vendor\database\Database;
+use App\Entity\PokemonRarity;
 
 class PokemonRarityManager implements ManagerInterface
 {
@@ -28,7 +30,7 @@ class PokemonRarityManager implements ManagerInterface
     public function findOne($entity)
     {
         // TODO: Implement findOne() method.
-        $statement = "SELECT * FROM PokemonRarity WHERE id = :id LIMIT 1";
+        $statement = "SELECT * FROM pokemonRarity WHERE id = :id LIMIT 1";
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":name", $entity->getName());
         $prepare->execute();
@@ -41,7 +43,7 @@ class PokemonRarityManager implements ManagerInterface
      */
     public function findAll()
     {
-        $query = $this->db->query("SELECT * FROM PokemonRarity");
+        $query = $this->db->query("SELECT * FROM pokemonRarity");
         return $query->fetchAll(\PDO::FETCH_CLASS, PokemonRarity::class);
     }
 
@@ -53,7 +55,7 @@ class PokemonRarityManager implements ManagerInterface
      */
     public function add($entity)
     {
-        $statement = "INSERT INTO PokemonRarity (name, nameSlug) 
+        $statement = "INSERT INTO pokemonRarity (name, nameSlug) 
         VALUES (:name , :nameSlug )";
 
         $prepare = $this->db->prepare($statement);
@@ -71,7 +73,7 @@ class PokemonRarityManager implements ManagerInterface
     public function edit($entity)
     {
         // TODO: Implement edit() method.
-        $statement = "UPDATE PokemonRarity SET 
+        $statement = "UPDATE pokemonRarity SET 
                 name = :name
                 WHERE id=:id LIMIT 1";
         $prepare = $this->db->prepare($statement);
@@ -89,7 +91,7 @@ class PokemonRarityManager implements ManagerInterface
     public function delete($entity)
     {
         // TODO: Implement delete() method.
-        $sql = 'DELETE FROM PokemonRarity WHERE id = :id';
+        $sql = 'DELETE FROM pokemonRarity WHERE id = :id';
         $prepare = $this->db->prepare($sql);
         $prepare->bindValue(":id", $entity->getId());
         $prepare->execute;
@@ -103,7 +105,7 @@ class PokemonRarityManager implements ManagerInterface
     public function findFirst()
     {
         // TODO: Implement findFirst() method.
-        $query = $this->db->query( "SELECT * FROM PokemonRarity ORDER BY id = :id ASC LIMIT 1");
+        $query = $this->db->query( "SELECT * FROM pokemonRarity ORDER BY id = :id ASC LIMIT 1");
         return $query->fetch(\PDO::FETCH_CLASS, PokemonRarity::class);
     }
 }
