@@ -9,7 +9,7 @@ class donsManager implements ManagerInterface
 
     public function findOne($entity)
     {
-        $stmt = "SELECT * FROM Don WHERE id = :id";
+        $stmt = "SELECT * FROM don WHERE id = :id LIMIT 1";
         $prepare = $this->db->prepare($stmt);
         $prepare->bindValue(":id", $entity->getId());
         $prepare->execute;
@@ -24,7 +24,7 @@ class donsManager implements ManagerInterface
 
     public function add($entity)
     {
-        $statement = "INSERT INTO Don (amount, user) 
+        $statement = "INSERT INTO don (amount, user) 
         VALUES (:amount, :user)";
 
         $prepare = $this->db->prepare($statement);
@@ -38,7 +38,7 @@ class donsManager implements ManagerInterface
      */
     public function edit($entity)
     {
-        $statement = "UPDATE INTO Don (amount, user ) 
+        $statement = "UPDATE INTO don (amount, user ) 
         VALUES (:amount, :user )";
 
         $prepare = $this->db->prepare($statement);
@@ -53,17 +53,19 @@ class donsManager implements ManagerInterface
      */
     public function delete($entity)
     {
-        $stmt = "DELETE FROM Don WHERE id = :id";
+        $stmt = "DELETE FROM don WHERE id = :id";
         $prepare = $this->db->prepare($stmt);
         $prepare->bindValue(":id", $entity->getId());
         $prepare->execute;
     }
-    
+
     /**
      * nécéssaire ou pas?
      */
     public function findFirst()
     {
-        // TODO: Implement findFirst() method.
+        $stmt = "SELECT * FROM don ORDER BY id ASC LIMIT 1";
+        $prepare = $this->db->prepare($stmt);
+        $prepare->execute;
     }
 }
