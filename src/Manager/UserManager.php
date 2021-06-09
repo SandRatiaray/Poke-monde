@@ -3,22 +3,10 @@ namespace App\Manager;
 use App\Entity\User;
 use App\Manager\ManagerInterface;
 use Vendor\database\Database;
+use Vendor\database\Manager;
 
-class UserManager implements ManagerInterface
+class UserManager extends Manager implements ManagerInterface
 {
-    private \PDO $db;
-
-    public function __construct ()
-    {
-        $db = new Database();
-        $this->setDb($db->getDb());
-    }
-
-    private function setDb (\PDO $db)
-    {
-        $this->db = $db;
-    }
-
     /**
      * Find one user by email
      * @param User $entity
