@@ -3,18 +3,71 @@ namespace App\Entity;
 
 class Pokemon
 {
+    /**
+     * @var int auto increment
+     * représente l'identifiant du pokemon
+     */
     private $id;
+
+    /**
+     * @var string
+     * représente le nom du pokemon
+     */
     private $name;
+
+    /**
+     * @var string
+     * représente le slug du pokemon
+     */
     private $nameSlug;
+
+    /**
+     * @var int
+     * représente l'identifiant du type du pokemon
+     */
     private $type;
+
+    /**
+     * @var int
+     * représente l'identifiant de la race du pokemon
+     */
     private $race;
-    private $weight;
-    private $size;
+
+    /**
+     * @var int
+     * représente l'identifiant de la rareté du pokemon
+     */
     private $rarity;
+
+    /**
+     * @var float 
+     * représente le poids du pokemon
+     */
+    private $weight;
+
+    /**
+     * @var float
+     * représente la taille du pokemon
+     */
+    private $size;
+
+    /**
+     * @var string
+     * représente l'image du pokemon
+     */
     private $image;
+
+    /**
+     * @var bool
+     * représente la disponibilité du pokemon (true ou false)
+     */
     private $available;
 
 
+    /**
+     * @var entity
+     * permet d'affecter les données de la table à l'objet grâce au setter.
+     */
     public function hydrate (array $pokemon)
     {
         foreach ($pokemon as $key => $value) {

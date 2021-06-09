@@ -3,8 +3,22 @@
 namespace App\Entity;
 
 class PokemonRace {
+    /**
+     * @var int
+     * représente l'id de la race de pokemon
+     */
     private $id;
+
+    /**
+     * @var string
+     * représente le nom de la race de pokemon
+     */
     private $name;
+
+    /**
+     * @var string 
+     * représente le slug de la race de pokemon
+     */
     private $nameSlug;
 
     /**
