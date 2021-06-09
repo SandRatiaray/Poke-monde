@@ -3,31 +3,64 @@ namespace App\Entity;
 
 class Product
 {
+
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @var string
+     * représente le nom du produi
+     */
+    private $name;
+
+    /**
+     * @var string 
+     * repésente le slug du produit
+     */
+    private $nameSlug;
+
+    /**
+     * @var int
+     * représente la quntité du produit
+     */
+    private $stock;
+
+    /**
+     * @var int 
+     * représente la catégorie du produit
+     */
+    private $category;
+
+    /**
+     * @var float
+     * représente le prix unitaire du produit
+     */
+    private $price;
+
+    /**
+     * @var string
+     * représente la description du produit
+     */
+    private $description;
+
+
+
+    /**
+     * @var id
+     * représente l'id du produit
      */
     private $id;
 
     /**
      * @return mixed
+     * renvoi l'id du produit
      */
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
 
     /**
      * @return mixed
+     * retourne le nom du produit 
      */
     public function getName()
     {
@@ -36,6 +69,7 @@ class Product
 
     /**
      * @param mixed $name
+     * ajoute le nom du produit
      */
     public function setName($name)
     {
@@ -44,6 +78,7 @@ class Product
 
     /**
      * @return mixed
+     * retourne le slug du produit
      */
     public function getNameSlug()
     {
@@ -52,6 +87,7 @@ class Product
 
     /**
      * @param mixed $nameSlug
+     * ajoute le slug du produit
      */
     public function setNameSlug($nameSlug)
     {
@@ -60,6 +96,7 @@ class Product
 
     /**
      * @return mixed
+     * retourne le stock du produit
      */
     public function getStock()
     {
@@ -68,6 +105,7 @@ class Product
 
     /**
      * @param mixed $stock
+     * ajoute le stock du produit 
      */
     public function setStock($stock)
     {
@@ -76,6 +114,7 @@ class Product
 
     /**
      * @return mixed
+     * retorune la catégorie du profuit 
      */
     public function getCategory()
     {
@@ -84,6 +123,7 @@ class Product
 
     /**
      * @param mixed $category
+     * ajoute la catégorie du produit
      */
     public function setCategory($category)
     {
@@ -92,6 +132,7 @@ class Product
 
     /**
      * @return mixed
+     * retourne le prix du produit
      */
     public function getPrice()
     {
@@ -100,6 +141,7 @@ class Product
 
     /**
      * @param mixed $price
+     * ajoute le prix du produit
      */
     public function setPrice($price)
     {
@@ -108,6 +150,7 @@ class Product
 
     /**
      * @return mixed
+     * retourne la description du produit
      */
     public function getDescription()
     {
@@ -116,45 +159,18 @@ class Product
 
     /**
      * @param mixed $description
+     * ajoute la description du produit 
      */
     public function setDescription($description)
     {
         $this->description = $description;
     }
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $nameSlug;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $stock;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $category;
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $price;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $description;
-
+    
     /**
      * Hydrate
      * @param array $product
+     * permet d'hydrater les données
      */
     public function hydrate(array $product)
     {

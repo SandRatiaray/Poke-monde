@@ -4,14 +4,25 @@ namespace App\Entity;
 class ProductCategory
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @var int 
+     * représente l'id 
      */
     private $id;
 
     /**
+     * @var String
+     */
+    private $nameSlug;
+
+    /**
+     * @var String
+     * représente le nom de la catégorie
+     */
+    private $name;
+
+    /**
      * @return mixed
+     * retourne l'id de la catégorie
      */
     public function getId()
     {
@@ -19,20 +30,8 @@ class ProductCategory
     }
 
     /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $name;
-
-    /**
      * @return mixed
+     * retourne le nom de la catégorie
      */
     public function getName()
     {
@@ -41,6 +40,7 @@ class ProductCategory
 
     /**
      * @param mixed $name
+     * ajoute le nom de la catégorie
      */
     public function setName($name)
     {
@@ -49,6 +49,7 @@ class ProductCategory
 
     /**
      * @return mixed
+     * retourne le slig de la catégorie
      */
     public function getNameSlug()
     {
@@ -57,6 +58,7 @@ class ProductCategory
 
     /**
      * @param mixed $nameSlug
+     * ajoute le slug de la catégorie
      */
     public function setNameSlug($nameSlug)
     {
@@ -64,13 +66,8 @@ class ProductCategory
     }
 
     /**
-     * @ORM\Column(type="string")
-     */
-    private $nameSlug;
-
-    /**
-     * Hydrate
      * @param array $product
+     * Hydrate les données de la base de données
      */
     public function hydrate(array $product)
     {
