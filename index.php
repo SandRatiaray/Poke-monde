@@ -1,4 +1,6 @@
 <?php
+const ROOT = __DIR__;
+
 require_once 'vendor/autoload.php';
 
 use Vendor\database\Database;
