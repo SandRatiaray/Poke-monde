@@ -3,6 +3,7 @@ namespace App\Entity;
 
 class Pokemon
 {
+    private $id;
     private $name;
     private $nameSlug;
     private $type;
@@ -23,6 +24,26 @@ class Pokemon
             }
         }
     }
+
+    /**
+     * @return mixed
+     * retourne l'id du pokemon
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     * ajoute l'id du pokemon
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+
 
     /**
      * @return string
