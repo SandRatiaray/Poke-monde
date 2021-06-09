@@ -6,9 +6,26 @@ use Doctrine\ORM\Mapping\Id;
 
 class Don
 {
-
+    /**
+     *  id du don
+     * 
+     * @return int
+     * 
+     */
     private $id;
+
+    /**
+     * Montant du don
+     * 
+     * @var integer
+     */
     private $amount;
+
+    /**
+     * Id de l'utilisateur qui fait le don
+     * 
+     * @var integer
+     */
     private $user;
 
     public function __construct($id, $amount, $user)
@@ -49,8 +66,8 @@ class Don
     }
 
     /**
-     * Hydrater une entité (array => entity)
-     * @param array $datas
+     * Hydrate
+     * @param array $dons
      * @return mixed
      */
     public function hydrate(array $don)

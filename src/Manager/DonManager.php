@@ -2,11 +2,31 @@
 
 namespace App\Manager;
 
+use Vendor\database\Database;
 use App\Manager\ManagerInterface;
+
 
 class donsManager implements ManagerInterface
 {
 
+    private \PDO $db;
+
+    public function __construct()
+    {
+        $db = new Database();
+        $this->setDb($db->getDb());
+    }
+
+    private function setDb(\PDO $db)
+    {
+        $this->db = $db;
+    }
+
+    /**
+     * Find one donation by id
+     * @param Don $entity
+     * @return mixed
+     */
     public function findOne($entity)
     {
         $stmt = "SELECT * FROM don WHERE id = :id LIMIT 1";
@@ -15,6 +35,10 @@ class donsManager implements ManagerInterface
         $prepare->execute;
     }
 
+    /**
+     * Get all donations
+     * @return array|mixed
+     */
     public function findAll()
     {
         $request = "SELECT * FROM don";
@@ -22,6 +46,10 @@ class donsManager implements ManagerInterface
         return $query->fetchAll(\PDO::FETCH_CLASS, "App\Entity\don");
     }
 
+    /**
+     * Insert a new donation
+     * @param Don $entity
+     */
     public function add($entity)
     {
         $statement = "INSERT INTO don (amount, user) 
@@ -34,7 +62,9 @@ class donsManager implements ManagerInterface
     }
 
     /**
-     * Nécessaire ou pas? 
+     * Edit a donation by id
+     * @param Don $entity
+     * @return mixed|void
      */
     public function edit($entity)
     {
@@ -49,7 +79,9 @@ class donsManager implements ManagerInterface
 
 
     /**
-     * nécéssaire ou pas?
+     * Delete a donation by id
+     * @param Don entity
+     * @return mixed|void
      */
     public function delete($entity)
     {
@@ -60,7 +92,9 @@ class donsManager implements ManagerInterface
     }
 
     /**
-     * nécéssaire ou pas?
+     * Find the first Donation
+     * @param Don entity
+     * @return mixed|void
      */
     public function findFirst()
     {

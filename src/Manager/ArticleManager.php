@@ -2,11 +2,31 @@
 
 namespace App\Manager;
 
+
+use App\Entity\Article;
+use Vendor\database\Database;
 use App\Manager\ManagerInterface;
 
 class ArticlesManager implements ManagerInterface
 {
+    private \PDO $db;
 
+    public function __construct()
+    {
+        $db = new Database();
+        $this->setDb($db->getDb());
+    }
+
+    private function setDb(\PDO $db)
+    {
+        $this->db = $db;
+    }
+
+    /**
+     * Find one Article by id
+     * @param Article $entity
+     * @return mixed
+     */
     public function findOne($entity)
     {
         $stmt = "SELECT * FROM article WHERE id = :id LIMIT 1";
@@ -15,6 +35,10 @@ class ArticlesManager implements ManagerInterface
         $prepare->execute;
     }
 
+    /**
+     * Get all articles
+     * @return array|mixed
+     */
     public function findAll()
     {
         $request = "SELECT * FROM article";
@@ -22,6 +46,10 @@ class ArticlesManager implements ManagerInterface
         return $query->fetchAll(\PDO::FETCH_CLASS, "App\Entity\Article");
     }
 
+    /**
+     * Insert a new Article
+     * @param Article $entity
+     */
     public function add($entity)
     {
         $statement = "INSERT INTO article (title, content,createdAt ) 
@@ -33,6 +61,11 @@ class ArticlesManager implements ManagerInterface
         $prepare->execute();
     }
 
+    /**
+     * Edit an article by id
+     * @param Don $entity
+     * @return mixed|void
+     */
     public function edit($entity)
     {
         $statement = "UPDATE INTO article (title, content ) 
@@ -44,7 +77,11 @@ class ArticlesManager implements ManagerInterface
         $prepare->execute();
     }
 
-
+    /**
+     * Delete an article by id
+     * @param Article entity
+     * @return mixed|void
+     */
     public function delete($entity)
     {
         $stmt = "DELETE FROM article WHERE id = :id";
@@ -53,6 +90,11 @@ class ArticlesManager implements ManagerInterface
         $prepare->execute;
     }
 
+    /**
+     * Find the first article
+     * @param Article entity
+     * @return mixed|void
+     */
     public function findFirst()
     {
         $stmt = "SELECT * FROM article ORDER BY id LIMIT 1";

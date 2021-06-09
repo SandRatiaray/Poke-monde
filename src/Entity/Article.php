@@ -10,7 +10,7 @@ class Article
     /**
      *  id de l'article
      * 
-     * @var int
+     * @return mixed
      * 
      */
     private $id;
@@ -85,8 +85,8 @@ class Article
     }
 
     /**
-     * Hydrater une entité (array => entity)
-     * @param array $datas
+     * Hydrate
+     * @param array $article
      * @return mixed
      */
     public function hydrate(array $article)
