@@ -32,7 +32,7 @@ class DonManager implements ManagerInterface
         $stmt = "SELECT * FROM don WHERE id = :id LIMIT 1";
         $prepare = $this->db->prepare($stmt);
         $prepare->bindValue(":id", $entity->getId());
-        $prepare->execute;
+        $prepare->execute();
     }
 
     /**
@@ -88,7 +88,7 @@ class DonManager implements ManagerInterface
         $stmt = "DELETE FROM don WHERE id = :id";
         $prepare = $this->db->prepare($stmt);
         $prepare->bindValue(":id", $entity->getId());
-        $prepare->execute;
+        $prepare->execute();
     }
 
     /**
@@ -100,6 +100,6 @@ class DonManager implements ManagerInterface
     {
         $stmt = "SELECT * FROM don ORDER BY id ASC LIMIT 1";
         $prepare = $this->db->prepare($stmt);
-        $prepare->execute;
+        $prepare->execute();
     }
 }

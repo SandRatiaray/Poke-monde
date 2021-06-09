@@ -32,7 +32,7 @@ class ArticleManager implements ManagerInterface
         $stmt = "SELECT * FROM article WHERE id = :id LIMIT 1";
         $prepare = $this->db->prepare($stmt);
         $prepare->bindValue(":id", $entity->getId());
-        $prepare->execute;
+        $prepare->execute();
     }
 
     /**
@@ -87,7 +87,7 @@ class ArticleManager implements ManagerInterface
         $stmt = "DELETE FROM article WHERE id = :id";
         $prepare = $this->db->prepare($stmt);
         $prepare->bindValue(":id", $entity->getId());
-        $prepare->execute;
+        $prepare->execute();
     }
 
     /**
@@ -99,6 +99,6 @@ class ArticleManager implements ManagerInterface
     {
         $stmt = "SELECT * FROM article ORDER BY id LIMIT 1";
         $prepare = $this->db->prepare($stmt);
-        $prepare->execute;
+        $prepare->execute();
     }
 }
