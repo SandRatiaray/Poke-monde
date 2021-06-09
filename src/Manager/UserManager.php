@@ -49,7 +49,7 @@ class UserManager implements ManagerInterface
      */
     public function add($entity)
     {
-        $statement = "INSERT INTO user (lastname, firstname, email, password, address, zipcode, tel) 
+        $statement = "INSERT INTO user (last_name, first_name, email, password, address, zip_code, tel) 
                         VALUES (:lastname, :firstname, :email, :password, :address, :zipcode, :tel)";
 
         $prepare = $this->db->prepare($statement);
@@ -71,12 +71,12 @@ class UserManager implements ManagerInterface
     public function edit($entity)
     {
         $statement = "UPDATE user SET 
-                lastname = :lastname,
-                firstname = :firstname,
+                last_name = :lastname,
+                first_name = :firstname,
                 email = :email,
                 password = :password,
                 address = :address,
-                zipcode = :zipcode,
+                zip_code = :zipcode,
                 tel = :tel 
                 WHERE email=:email LIMIT 1";
         $prepare = $this->db->prepare($statement);

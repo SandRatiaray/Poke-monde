@@ -49,7 +49,7 @@ class ContactManager implements ManagerInterface
      */
     public function add($entity)
     {
-        $statement = "INSERT INTO contact (message, user) 
+        $statement = "INSERT INTO contact (message, user_id) 
                         VALUES (:lastname, :firstname)";
 
         $prepare = $this->db->prepare($statement);
