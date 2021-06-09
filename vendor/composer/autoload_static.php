@@ -35,6 +35,9 @@ class ComposerStaticInit5edeb43f1c9ce6d69208416a85213fd5
         'App\\Manager\\PokemonManager' => __DIR__ . '/../..' . '/src/Manager/PokemonManager.php',
         'App\\Utils\\DatabaseHandler' => __DIR__ . '/../..' . '/src/Utils/DatabaseHandler.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Vendor\\database\\Database' => __DIR__ . '/..' . '/database/Database.php',
+        'Vendor\\database\\Statements' => __DIR__ . '/..' . '/database/Statements.php',
+        'Vendor\\dotenv\\DotEnv' => __DIR__ . '/..' . '/dotenv/DotEnv.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
