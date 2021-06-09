@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'af114547423c8e6b18c1020d851ff0a36a1a5d0d',
+    'reference' => 'b820d8a9f2fd7d6e2b3bdef0a581591d4916705e',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'af114547423c8e6b18c1020d851ff0a36a1a5d0d',
+      'reference' => 'b820d8a9f2fd7d6e2b3bdef0a581591d4916705e',
     ),
     'symfony/deprecation-contracts' => 
     array (
@@ -37,6 +37,15 @@
       array (
       ),
       'reference' => '8827b90cf8806e467124ad476acd15216c2fceb6',
+    ),
+    'symfony/polyfill-ctype' => 
+    array (
+      'pretty_version' => 'v1.23.0',
+      'version' => '1.23.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '46cd95797e9df938fdd2b03693b5fca5e64b01ce',
     ),
     'symfony/polyfill-mbstring' => 
     array (
@@ -64,6 +73,15 @@
       array (
       ),
       'reference' => '368e81376a8e049c37cb80ae87dbfbf411279199',
+    ),
+    'twig/twig' => 
+    array (
+      'pretty_version' => 'v3.3.2',
+      'version' => '3.3.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '21578f00e83d4a82ecfa3d50752b609f13de6790',
     ),
   ),
 );
