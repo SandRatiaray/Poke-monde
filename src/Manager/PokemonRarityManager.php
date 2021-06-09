@@ -19,6 +19,12 @@ class PokemonRarityManager implements ManagerInterface
         $this->db = $db;
     }
 
+    /**
+     * @param $entity
+     * @return mixed
+     *
+     * requete qui permet de recuperer la rareté en fonction de l'id
+     */
     public function findOne($entity)
     {
         // TODO: Implement findOne() method.
@@ -29,12 +35,22 @@ class PokemonRarityManager implements ManagerInterface
         return $prepare->fetch(\PDO::FETCH_CLASS, PokemonRarity::class);
     }
 
+    /**
+     * @return array|mixed
+     * requete qui recupère toutes les raretés
+     */
     public function findAll()
     {
         $query = $this->db->query("SELECT * FROM PokemonRarity");
         return $query->fetchAll(\PDO::FETCH_CLASS, PokemonRarity::class);
     }
 
+    /**
+     * @param $entity
+     * @return mixed|void
+     *
+     * requête qui permet de créer un nouveau champ de rareté
+     */
     public function add($entity)
     {
         $statement = "INSERT INTO PokemonRarity (name, nameSlug) 
@@ -46,7 +62,12 @@ class PokemonRarityManager implements ManagerInterface
         $prepare->execute();
     }
 
-
+    /**
+     * @param $entity
+     * @return mixed|void
+     *
+     * requête qui modifie un champ de rareté
+     */
     public function edit($entity)
     {
         // TODO: Implement edit() method.
@@ -59,6 +80,12 @@ class PokemonRarityManager implements ManagerInterface
         $prepare->execute();
     }
 
+    /**
+     * @param $entity
+     * @return mixed|void
+     *
+     * requête qui supprime un champ rareté
+     */
     public function delete($entity)
     {
         // TODO: Implement delete() method.
@@ -68,6 +95,11 @@ class PokemonRarityManager implements ManagerInterface
         $prepare->execute;
     }
 
+    /**
+     * @return mixed
+     *
+     * requête qui recupère la 1er champ rare en fonction de l'id
+     */
     public function findFirst()
     {
         // TODO: Implement findFirst() method.

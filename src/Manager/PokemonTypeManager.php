@@ -21,6 +21,12 @@ class PokemonTypeManager implements ManagerInterface
         $this->db = $db;
     }
 
+    /**
+     * @param $entity
+     * @return mixed
+     *
+     * requete qui permet de recuperer le type en fonction de l'id
+     */
     public function findOne($entity)
     {
         // TODO: Implement findOne() method.
@@ -31,12 +37,22 @@ class PokemonTypeManager implements ManagerInterface
         return $prepare->fetch(\PDO::FETCH_CLASS, PokemonType::class);
     }
 
+    /**
+     * @return array|mixed
+     * requete qui recupère toutes les types
+     */
     public function findAll()
     {
         $query = $this->db->query("SELECT * FROM PokemonType");
         return $query->fetchAll(\PDO::FETCH_CLASS, PokemonType::class);
     }
 
+    /**
+     * @param $entity
+     * @return mixed|void
+     *
+     * requête qui permet de créer un nouveau champ de type
+     */
     public function add($entity)
     {
         $statement = "INSERT INTO PokemonType (name, nameSlug) 
@@ -49,6 +65,12 @@ class PokemonTypeManager implements ManagerInterface
     }
 
 
+    /**
+     * @param $entity
+     * @return mixed|void
+     *
+     * requête qui modifie un champ de type
+     */
     public function edit($entity)
     {
         // TODO: Implement edit() method.
@@ -61,6 +83,12 @@ class PokemonTypeManager implements ManagerInterface
         $prepare->execute();
     }
 
+    /**
+     * @param $entity
+     * @return mixed|void
+     *
+     * requête qui supprime un champ type
+     */
     public function delete($entity)
     {
         // TODO: Implement delete() method.
@@ -70,6 +98,11 @@ class PokemonTypeManager implements ManagerInterface
         $prepare->execute;
     }
 
+    /**
+     * @return mixed
+     *
+     * requête qui recupère la 1er champ type en fonction de l'id
+     */
     public function findFirst()
     {
         // TODO: Implement findFirst() method.

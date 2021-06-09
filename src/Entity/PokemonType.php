@@ -6,10 +6,21 @@ namespace App\Entity;
 
 class PokemonType
 {
+    /**
+     * @var int
+     */
     private $id;
 
+    /**
+     * @var string
+     * champs nom du type du pokemon comme feu, eau etc
+     */
     private $name;
 
+    /**
+     * @var string
+     * champs slug qui va permettre de personnaliser la route en fonction du pokemon choisis
+     */
     private $nameSlug;
 
     /**
@@ -63,5 +74,17 @@ class PokemonType
         $this->nameSlug = $nameSlug;
     }
 
-
+    /**
+     * Hydrate
+     * @param array $pokemonType
+     */
+    public function hydrate (array $pokemonType)
+    {
+        foreach ($pokemonType as $key => $value) {
+            $method = "set". ucfirst($key);
+            if(method_exists($this, $method)){
+                $this->$method($value);
+            }
+        }
+    }
 }
