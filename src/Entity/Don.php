@@ -26,12 +26,6 @@ class Don
      */
     private $user;
 
-    public function __construct($id, $amount, $user)
-    {
-        $this->id = $id;
-        $this->amount = $amount;
-        $this->user = $user;
-    }
 
     public function getId()
     {
