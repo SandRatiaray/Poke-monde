@@ -3,8 +3,9 @@ namespace App\Manager;
 use App\Entity\Product;
 use App\Manager\ManagerInterface;
 use Vendor\database\Database;
+use Vendor\database\Manager;
 
-class ProductManager implements ManagerInterface
+class ProductManager extends Manager implements ManagerInterface
 {
     /**
      *
@@ -14,7 +15,7 @@ class ProductManager implements ManagerInterface
      */
     public function add($entity)
     {
-        $statement = "INSERT INTO user (name, nameSlug, stock, category, price, description) 
+        $statement = "INSERT INTO user (name, nameSlug, stock, category_id, price, description) 
                         VALUES (:name, :nameSlug, :stock, :category, :price, :description)";
 
         $prepare = $this->db->prepare($statement);
@@ -38,7 +39,7 @@ class ProductManager implements ManagerInterface
                 name = :name,
                 nameSlug = :nameSlug,
                 stock = :stock,
-                category = :category,
+                category_id = :category,
                 price = :price,
                 description = :description";
         $prepare = $this->db->prepare($statement);

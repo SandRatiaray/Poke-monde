@@ -4,8 +4,9 @@ namespace App\Manager;
 use App\Entity\ProductCategory;
 use App\Manager\ManagerInterface;
 use Vendor\database\Database;
+use Vendor\database\Manager;
 
-class ProductCategoryManager implements ManagerInterface
+class ProductCategoryManager extends Manager implements ManagerInterface
 {
     /**
      * @var entity
