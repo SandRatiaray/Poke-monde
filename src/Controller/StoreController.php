@@ -26,6 +26,9 @@ class StoreController
     }
 
     public function add (Request $request, $template){
+
+        echo $template->render('store/add.html.twig', []);
+
         if($request->isMethod('POST')){
             $product = new Product();
             $manager = new ProductManager();
