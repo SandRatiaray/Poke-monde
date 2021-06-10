@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Manager\ProductManager;
 use App\Entity\Product;
+use App\Manager\ProductCategoryManager;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -27,20 +28,27 @@ class StoreController
 
     public function add (Request $request, $template){
 
-        echo $template->render('store/add.html.twig', []);
 
         if($request->isMethod('POST')){
             $product = new Product();
             $manager = new ProductManager();
 
-            $product->hydrate((array)$request->request->all());
+            $product->hydrate($request->request->all());
+            var_dump($product);
             try{
                 $manager->add($product);
+
                 header('Location:/boutique');
+                print_r("produit ajouté");
             }
             catch(Exception $e){
-                print_r("erreur lors de l'ajout du produit");
+                print_r($e->getMessage());
             }
+        }
+        else{
+            $categoriManager = new ProductCategoryManager();
+            $categoriesProduits = $categoriManager->findAll();
+            echo $template->render('store/add.html.twig', ["categoriesProduits"=>$categoriesProduits]);
         }
     }
 

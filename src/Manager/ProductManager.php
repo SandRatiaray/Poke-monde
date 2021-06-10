@@ -15,13 +15,13 @@ class ProductManager extends Manager implements ManagerInterface
      */
     public function add($entity)
     {
-        $statement = "INSERT INTO user (name, nameSlug, stock, category_id, price, description, image) 
+        $statement = "INSERT INTO product (name, nameSlug, stock, category_id, price, description, image) 
                         VALUES (:name, :nameSlug, :stock, :category, :price, :description, :image)";
 
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":name", $entity->getName());
         $prepare->bindValue(":nameSlug", $entity->getNameSlug());
-        $prepare->bindValue(":stock", $entity->getStock());
+        $prepare->bindValue(":stock", (int)$entity->getStock());
         $prepare->bindValue(":category", $entity->getCategory());
         $prepare->bindValue(":price", $entity->getPrice());
         $prepare->bindValue(":description", $entity->getDescription());
