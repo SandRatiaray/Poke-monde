@@ -66,12 +66,12 @@ class ProductCategory
     }
 
     /**
-     * @param array $product
+     * @param array $categorie
      * Hydrate les données de la base de données
      */
-    public function hydrate(array $product)
+    public function hydrate(array $categorie)
     {
-        foreach ($product as $key => $value) {
+        foreach ($categorie as $key => $value) {
             $method = "set" . ucfirst($key);
             if (method_exists($this, $method)) {
                 $this->$method($value);

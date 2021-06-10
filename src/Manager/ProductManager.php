@@ -6,27 +6,12 @@ use Vendor\database\Database;
 
 class ProductManager implements ManagerInterface
 {
-
-    private \PDO $db;
-
-    public function __construct ()
-    {
-        $db = new Database();
-        $this->setDb($db->getDb());
-    }
-
-    private function setDb (\PDO $db)
-    {
-        $this->db = $db;
-    }
-
     /**
      *
      * @param Product $entity
      * @return mixed
+     * ajoute un produit dans la base de données 
      */
-
-
     public function add($entity)
     {
         $statement = "INSERT INTO user (name, nameSlug, stock, category, price, description) 
@@ -42,6 +27,11 @@ class ProductManager implements ManagerInterface
         $prepare->execute();
     }
 
+    /**
+     * @var entity
+     * @return mixed
+     * modifie un produit dans la base de données 
+     */
     public function edit($entity)
     {
         $statement = "UPDATE product SET 
@@ -61,7 +51,12 @@ class ProductManager implements ManagerInterface
         $prepare->execute();
     }
 
-    public function delete(int $id, $entity)
+    /**
+     * @var entity
+     * @return mixed
+     * supprime un produit grâce à son id
+     */
+    public function delete($entity)
     {
         $statement = "DELETE FROM product WHERE id = :id";
         $prepare = $this->db->prepare($statement);
@@ -70,6 +65,11 @@ class ProductManager implements ManagerInterface
     }
 
 
+    /**
+     * @var entity
+     * @return mixed|product 
+     * retourne un produit en fonction de son id
+     */
     public function findOne($entity)
     {
         $statement = "SELECT * FROM product WHERE id = :id LIMIT 1";
@@ -79,6 +79,11 @@ class ProductManager implements ManagerInterface
         return $prepare->fetch(\PDO::FETCH_CLASS, product::class);
     }
 
+    /**
+     * @var null 
+     * @return mixed|product
+     * retourne le premier produit de en enfonction de la recherche 
+     */
     public function findFirst()
     {
         // TODO: Implement findFirst() method.
@@ -86,6 +91,11 @@ class ProductManager implements ManagerInterface
         return $query->fetch(\PDO::FETCH_CLASS, product::class);
     }
 
+    /**
+     * @var null
+     * @return array|product
+     * retourne la totalité des produits
+     */
     public function findAll()
     {
         $query = $this->db->query("SELECT * FROM product");
