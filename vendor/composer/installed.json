@@ -1,4 +1,7 @@
 {
+<<<<<<< HEAD
+    "packages": [],
+=======
     "packages": [
         {
             "name": "symfony/deprecation-contracts",
@@ -570,6 +573,7 @@
             "install-path": "../twig/twig"
         }
     ],
+>>>>>>> 89fb3626f043fa1ccf408bb75b2dad64860e4938
     "dev": true,
     "dev-package-names": []
 }

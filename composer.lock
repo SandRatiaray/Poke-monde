@@ -555,6 +555,7 @@
             "time": "2021-05-16T12:14:13+00:00"
         }
     ],
+>>>>>>> 89fb3626f043fa1ccf408bb75b2dad64860e4938
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
