@@ -1,7 +1,66 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact - Pokemonde{% endblock %}
+{% block title %}Contact - Pokemonde
+{% endblock %}
 
 {% block body %}
-    <h1>Vous êtes sur la page contact</h1>
-{% endblock %}
+	<section class="py-5">
+		<div class="container px-5">
+			{% if session.contact_ok %}
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					{{ session.contact_ok }}
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			{% endif %}
+			{% if not session.user %}
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					Connectez-vous pour écrire une message. <a href="/connexion">Se connecter</a>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			{% endif %}
+			<div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+				<div class="text-center mb-5">
+					<div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						<i class="bi bi-envelope"></i>
+					</div>
+					<h1 class="fw-bolder">Contactez-nous</h1>
+					<p class="lead fw-normal text-muted mb-0">Une Question?</p>
+				</div>
+				<div class="row gx-5 justify-content-center">
+					<div
+						class="col-lg-8 col-xl-6">
+						<!-- Contact form-->
+						<form
+							id="contactForm" action="contact" method="POST">
+							<!-- Message input-->
+							<div class="form-floating mb-3">
+								<textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." name="message" style="height: 10rem" data-sb-validations="required"></textarea>
+								<label for="message">Message</label>
+							</div>
+							{% if not session.user %}
+								<div class="form-floating mb-3">
+									<!-- Submit Button-->
+									<div class="d-grid">
+										<button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Valider</button>
+									</div>
+								</div>
+							{% else %}
+								{% include 'partials/button.html.twig' %}
+							{% endif %}
+							</form>
+					</div>
+				</div>
+				<!-- Contact cards-->
+				<div class="container">
+					<div class="text-center">
+						<h2 class="section-heading text-uppercase">Retrouvez nous au
+						</h2>
+						<h3 class="section-subheading text-muted">Bourg Palette</h3>
+					</div>
+					<div class="text-center">
+						<img src="https://i0.wp.com/www.pokemon-france.com/wp-content/uploads/2016/01/bourg-palette.png" alt="bourg-palette">
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endblock %}

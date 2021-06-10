@@ -14,11 +14,14 @@ class UserManager extends Manager implements ManagerInterface
      */
     public function findOne($entity)
     {
-        $statement = "SELECT * FROM user WHERE email = :email LIMIT 1";
+        $statement = "SELECT * FROM user WHERE email = :email AND password = :password LIMIT 1";
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":email", $entity->getEmail());
+        $prepare->bindValue(":password", $entity->getPassword());
         $prepare->execute();
-        return $prepare->fetch(\PDO::FETCH_CLASS, "App\Entity\User");
+//        $prepare->setFetchMode(\PDO::FETCH_CLASS, User::class);
+//        return $prepare->fetch();
+        return $prepare->fetch(\PDO::FETCH_OBJ);
     }
 
     /**

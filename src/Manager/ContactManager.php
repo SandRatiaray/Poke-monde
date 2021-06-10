@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Manager;
+
 use App\Entity\Contact;
 use App\Manager\ManagerInterface;
 use Vendor\database\Database;
@@ -38,7 +40,7 @@ class ContactManager extends Manager implements ManagerInterface
     public function add($entity)
     {
         $statement = "INSERT INTO contact (message, user_id) 
-                        VALUES (:lastname, :firstname)";
+                        VALUES (:message, :user)";
 
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":message", $entity->getMessage());
@@ -57,9 +59,9 @@ class ContactManager extends Manager implements ManagerInterface
                 message = :message
                 WHERE id=:id LIMIT 1";
         $prepare = $this->db->prepare($statement);
-        $prepare->bindValue(":message", $entity->getLastName());
+        $prepare->bindValue(":message", $entity->getMessage());
         $prepare->bindValue(":id", $entity->getId());
-          $prepare->execute();
+        $prepare->execute();
     }
 
     /**

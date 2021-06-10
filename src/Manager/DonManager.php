@@ -2,10 +2,11 @@
 
 namespace App\Manager;
 
+use App\Entity\Don;
 use Vendor\database\Database;
 use App\Manager\ManagerInterface;
 use Vendor\database\Manager;
-
+use Vendor\database\Statements;
 
 class DonManager extends Manager implements ManagerInterface
 {
@@ -41,10 +42,9 @@ class DonManager extends Manager implements ManagerInterface
     {
         $statement = "INSERT INTO don (amount, user_id) 
         VALUES (:amount, :user)";
-
         $prepare = $this->db->prepare($statement);
-        $prepare->bindValue(":amount", $entity->getamount());
-        $prepare->bindValue(":user", $entity->getuser());
+        $prepare->bindValue(":amount", $entity->getAmount());
+        $prepare->bindValue(":user", $entity->getUser()->getId());
         $prepare->execute();
     }
 
@@ -57,10 +57,9 @@ class DonManager extends Manager implements ManagerInterface
     {
         $statement = "UPDATE INTO don (amount, user ) 
         VALUES (:amount, :user )";
-
         $prepare = $this->db->prepare($statement);
-        $prepare->bindValue(":amount", $entity->getamount());
-        $prepare->bindValue(":user", $entity->getuser());
+        $prepare->bindValue(":amount", $entity->getAmount());
+        $prepare->bindValue(":user", $entity->getUser());
         $prepare->execute();
     }
 
