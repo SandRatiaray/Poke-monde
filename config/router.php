@@ -18,6 +18,8 @@ $routes = new RouteCollection();
 $routes->add("home", new Route("/", ['_controller'=>[new HomeController, "index"]]));
 // Connexion
 $routes->add("connexion", new Route("/connexion", ['_controller'=>[new AuthenticateController(), "signIn"]]));
+// Deconnexion
+$routes->add("deconnexion", new Route("/deconnexion", ['_controller'=>[new AuthenticateController(), "signOut"]]));
 // Inscription
 $routes->add("inscription", new Route("/inscription", ['_controller'=>[new AuthenticateController, "signUp"]]));
 // Boutique
