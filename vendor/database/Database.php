@@ -1,8 +1,6 @@
 <?php
 namespace Vendor\database;
 
-use Vendor\dotenv\DotEnv;
-
 /**
  * Class Database
  * @package App\Database
@@ -40,9 +38,6 @@ class Database
     private $db;
 
     public function __construct(){
-        //Init the environment attributes
-        $dotEnv = new DotEnv(__DIR__ . '/../../.env');
-        $dotEnv->load();
         // Init parameters
         $this->setDbName(getenv('DB_NAME'));
         $this->setDbHost(getenv('DB_HOST'));

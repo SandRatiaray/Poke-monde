@@ -19,7 +19,7 @@ try {
     $articleStatements = $statementsManager->getArticleStatements();
     $statements = [$userStatements, $pokemonStatements, $productStatements, $articleStatements];
     foreach ($statements as $statementPerType) {
-        // Ajouter les tables
+        // Ajout des tables
         foreach ($statementPerType as $statement) {
             $prepare = $db->prepare($statement);
             $prepare->execute();

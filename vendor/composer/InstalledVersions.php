@@ -19,11 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-<<<<<<< HEAD
-    'reference' => '7a3968d444ce91f39ab6bab5637192d0245af560',
-=======
-    'reference' => '49e0f541a447fe7d16194223035badc3accd2825',
->>>>>>> 89fb3626f043fa1ccf408bb75b2dad64860e4938
+    'reference' => 'b820d8a9f2fd7d6e2b3bdef0a581591d4916705e',
     'name' => '__root__',
   ),
   'versions' => 
@@ -35,10 +31,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-<<<<<<< HEAD
-      'reference' => '7a3968d444ce91f39ab6bab5637192d0245af560',
-=======
-      'reference' => '49e0f541a447fe7d16194223035badc3accd2825',
+      'reference' => 'b820d8a9f2fd7d6e2b3bdef0a581591d4916705e',
     ),
     'symfony/deprecation-contracts' => 
     array (
@@ -57,6 +50,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '8827b90cf8806e467124ad476acd15216c2fceb6',
+    ),
+    'symfony/polyfill-ctype' => 
+    array (
+      'pretty_version' => 'v1.23.0',
+      'version' => '1.23.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '46cd95797e9df938fdd2b03693b5fca5e64b01ce',
     ),
     'symfony/polyfill-mbstring' => 
     array (
@@ -84,7 +86,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '368e81376a8e049c37cb80ae87dbfbf411279199',
->>>>>>> 89fb3626f043fa1ccf408bb75b2dad64860e4938
+    ),
+    'twig/twig' => 
+    array (
+      'pretty_version' => 'v3.3.2',
+      'version' => '3.3.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '21578f00e83d4a82ecfa3d50752b609f13de6790',
     ),
   ),
 );

@@ -1,6 +1,10 @@
 <?php
 namespace Vendor\database;
 
+/**
+ * Class Statements
+ * @package Vendor\database
+ */
 class Statements
 {
     /**
