@@ -40,6 +40,12 @@ class Product
      */
     private $description;
 
+    /**
+     * @var string
+     * représente la chaine de l'image d'un produit
+     */
+    private $image;
+
 
 
     /**
@@ -166,6 +172,27 @@ class Product
         $this->description = $description;
     }
 
+    /**
+     * Get représente la chaine de l'image d'un produit
+     *
+     * @return  string
+     */ 
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set représente la chaine de l'image d'un produit
+     *
+     * @param  string  $image  représente la chaine de l'image d'un produit
+     *
+     */ 
+    public function setImage(string $image)
+    {
+        $this->image = $image;
+    }
+
     
     /**
      * Hydrate
@@ -181,5 +208,7 @@ class Product
             }
         }
     }
+
+
 }
 

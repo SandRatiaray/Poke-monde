@@ -15,8 +15,8 @@ class ProductManager extends Manager implements ManagerInterface
      */
     public function add($entity)
     {
-        $statement = "INSERT INTO user (name, nameSlug, stock, category_id, price, description) 
-                        VALUES (:name, :nameSlug, :stock, :category, :price, :description)";
+        $statement = "INSERT INTO user (name, nameSlug, stock, category_id, price, description, image) 
+                        VALUES (:name, :nameSlug, :stock, :category, :price, :description, :image)";
 
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":name", $entity->getName());
@@ -25,6 +25,7 @@ class ProductManager extends Manager implements ManagerInterface
         $prepare->bindValue(":category", $entity->getCategory());
         $prepare->bindValue(":price", $entity->getPrice());
         $prepare->bindValue(":description", $entity->getDescription());
+        $prepare->bindValue(":image", $entity->getImage());
         $prepare->execute();
     }
 
@@ -41,7 +42,8 @@ class ProductManager extends Manager implements ManagerInterface
                 stock = :stock,
                 category_id = :category,
                 price = :price,
-                description = :description";
+                description = :description,
+                image = :image";
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":name", $entity->getName());
         $prepare->bindValue(":nameSlug", $entity->getNameSlug());
@@ -49,6 +51,7 @@ class ProductManager extends Manager implements ManagerInterface
         $prepare->bindValue(":category", $entity->getCategory());
         $prepare->bindValue(":price", $entity->getPrice());
         $prepare->bindValue(":description", $entity->getDescription());
+        $prepare->bindValue(":image", $entity->getImage());
         $prepare->execute();
     }
 
@@ -71,13 +74,15 @@ class ProductManager extends Manager implements ManagerInterface
      * @return mixed|product 
      * retourne un produit en fonction de son id
      */
-    public function findOne($entity)
+    public function findOne($id)
     {
         $statement = "SELECT * FROM product WHERE id = :id LIMIT 1";
         $prepare = $this->db->prepare($statement);
-        $prepare->bindValue(":name", $entity->getName());
+        $prepare->bindValue(":id", $id);
         $prepare->execute();
-        return $prepare->fetch(\PDO::FETCH_CLASS, product::class);
+        $query = $prepare->fetch(\PDO::FETCH_OBJ, product::class);
+        var_dump($query);
+        return ;
     }
 
     /**

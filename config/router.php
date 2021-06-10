@@ -22,6 +22,7 @@ $routes->add("connexion", new Route("/connexion", ['_controller'=>[new Authentic
 $routes->add("inscription", new Route("/inscription", ['_controller'=>[new AuthenticateController, "signUp"]]));
 // Boutique
 $routes->add("boutique", new Route("/boutique", ['_controller'=>[new StoreController(), "index"]]));
+$routes->add("produit", new Route("/produit/{id}", ['_controller'=>[new StoreController(), "produit"]]));
 // Contact
 $routes->add("contact", new Route("/contact", ['_controller'=>[new ContactController(), "index"]]));
 // Don
