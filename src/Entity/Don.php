@@ -37,11 +37,6 @@ class Don
     {
         return $this->id;
     }
-    public function setId($id): self
-    {
-        $this->id = $id;
-        return $this;
-    }
 
     public function getAmount()
     {

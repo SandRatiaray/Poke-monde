@@ -2,7 +2,8 @@
 
 namespace App\Entity;
 
-class PokemonRace {
+class PokemonRace
+{
     /**
      * @var int
      * représente l'id de la race de pokemon
@@ -35,11 +36,11 @@ class PokemonRace {
     /**
      * @param array $pokemonRace
      */
-    public function hydrate (array $pokemonRace)
+    public function hydrate(array $pokemonRace)
     {
         foreach ($pokemonRace as $key => $value) {
-            $method = "set". ucfirst($key);
-            if(method_exists($this, $method)){
+            $method = "set" . ucfirst($key);
+            if (method_exists($this, $method)) {
                 $this->$method($value);
             }
         }
@@ -52,14 +53,6 @@ class PokemonRace {
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
     }
 
     /**
@@ -93,5 +86,4 @@ class PokemonRace {
     {
         $this->nameSlug = $nameSlug;
     }
-
 }

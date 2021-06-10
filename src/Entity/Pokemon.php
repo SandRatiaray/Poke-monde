@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Entity;
 
 class Pokemon
@@ -68,11 +69,11 @@ class Pokemon
      * @var entity
      * permet d'affecter les données de la table à l'objet grâce au setter.
      */
-    public function hydrate (array $pokemon)
+    public function hydrate(array $pokemon)
     {
         foreach ($pokemon as $key => $value) {
-            $method = "set". ucfirst($key);
-            if(method_exists($this, $method)){
+            $method = "set" . ucfirst($key);
+            if (method_exists($this, $method)) {
                 $this->$method($value);
             }
         }
@@ -86,17 +87,6 @@ class Pokemon
     {
         return $this->id;
     }
-
-    /**
-     * @param mixed $id
-     * ajoute l'id du pokemon
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-
 
     /**
      * @return string
