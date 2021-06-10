@@ -7,12 +7,14 @@ namespace App\Entity;
 class Contact
 {
     /**
+     * id d'un contact
+     *
      * Auto increment
      * @var int
      */
     private int $id;
     /**
-     * Message
+     * Message laissé par l'utilisateur
      * @var string
      */
     private string $message;

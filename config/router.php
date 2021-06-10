@@ -10,7 +10,9 @@ use App\Controller\StoreController;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 
-// Liste des routes
+/**
+ * Liste des routes
+ */
 $routes = new RouteCollection();
 // Acceuil
 $routes->add("home", new Route("/", ['_controller'=>[new HomeController, "index"]]));
@@ -18,7 +20,7 @@ $routes->add("home", new Route("/", ['_controller'=>[new HomeController, "index"
 $routes->add("connexion", new Route("/connexion", ['_controller'=>[new AuthenticateController(), "signIn"]]));
 // Inscription
 $routes->add("inscription", new Route("/inscription", ['_controller'=>[new AuthenticateController, "signUp"]]));
-// Store
+// Boutique
 $routes->add("boutique", new Route("/boutique", ['_controller'=>[new StoreController(), "index"]]));
 // Contact
 $routes->add("contact", new Route("/contact", ['_controller'=>[new ContactController(), "index"]]));

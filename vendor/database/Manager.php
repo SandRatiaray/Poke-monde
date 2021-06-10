@@ -2,6 +2,10 @@
 
 namespace Vendor\database;
 
+/**
+ * Class Manager
+ * @package Vendor\database
+ */
 class Manager
 {
     protected \PDO $db;
