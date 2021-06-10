@@ -24,17 +24,6 @@ class PokemonType
     private $nameSlug;
 
     /**
-     * PokemonType constructor.
-     * @param $name
-     * @param $nameSlug
-     */
-    public function __construct($name, $nameSlug)
-    {
-        $this->name = $name;
-        $this->nameSlug = $nameSlug;
-    }
-
-    /**
      * @return mixed
      */
     public function getId()

@@ -35,8 +35,8 @@ class PokemonRaceManager extends Manager implements ManagerInterface {
      */
     public function findAll()
     {
-        $query = $this->db->query("SELECT * FROM $this->table");
-        return $query->fetchAll(\PDO::FETCH_OBJ, PokemonRace::class);
+        $query = $this->db->query("SELECT * FROM pokemonRace");
+        return $query->fetchAll(\PDO::FETCH_CLASS, PokemonRace::class);
     }
 
     /**

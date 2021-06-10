@@ -3,5 +3,24 @@
 {% block title %}Les pokemons - Pokemonde{% endblock %}
 
 {% block body %}
-    <h1>Vous êtes sur la page pokemon</h1>
-{% endblock %}
+    <section class="py-5">
+    <div class="text-center">
+        <h1 class="text-center">Bienvenue sur la liste de nos Pokemons</h1>
+        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1920px-International_Pok%C3%A9mon_logo.svg.png' style="height: 150px;" class=' img-fluid ' >
+    </div>
+      <div class="container px-4 px-lg-5 mt-5">
+        <h4 class="text-center">Voici nos pokemons disponible</h4>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {% for pokemon in pokemons %}
+            <div class="card m-3" style="width: 18rem;">
+                <img src="{{ pokemon.image }}" class="card-img-top img-fluid" style="height: 350px; width: 260px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ pokemon.name|upper }} <img src="pokeball.ico"  style="height: 30px;" alt=""></h5>
+                    <p class="card-text">Pokemon {{ pokemon.rarity.name }} très gentil de type {{ pokemon.type.name}} </p>
+                    <a href="#" class="btn btn-primary">Voir plus</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    </section>{% endblock %}

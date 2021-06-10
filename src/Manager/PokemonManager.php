@@ -32,7 +32,7 @@ class PokemonManager extends Manager implements ManagerInterface
     {
         // TODO: Implement findAll() method.
         $sql = $this->db->query("SELECT * FROM $this->table");
-        return $sql->fetch(\PDO::FETCH_OBJ, Pokemon::class);
+        return $sql->fetchAll(\PDO::FETCH_CLASS, Pokemon::class);
     }
 
 

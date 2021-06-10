@@ -73,6 +73,8 @@ class Pokemon
     {
         foreach ($pokemon as $key => $value) {
             $method = "set" . ucfirst($key);
+            print_r($method);
+
             if (method_exists($this, $method)) {
                 $this->$method($value);
             }

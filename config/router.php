@@ -27,7 +27,14 @@ $routes->add("contact", new Route("/contact", ['_controller'=>[new ContactContro
 // Don
 $routes->add("don", new Route("/don", ['_controller'=>[new DonationController(), "index"]]));
 // Pokemon
-$routes->add("pokemon", new Route("/pokemon", ['_controller'=>[new PokemonController(), "index"]]));
+$routes->add("pokemons", new Route("/pokemons", ['_controller'=>[new PokemonController(), "index"]]));
+//créer nouveaux pokemons
+$routes->add("pokemonNew", new Route("/pokemonNew", ['_controller'=>[new PokemonController(), "create"]]));
+//édition des pokemons
+$routes->add("pokemonEdit", new Route("/pokemonEdit/{id}", ['_controller'=>[new PokemonController(), "edit"]]));
+//pokemon par ID
+$routes->add("pokemonShow", new Route("/pokemonShow/{id}", ['_controller'=>[new PokemonController(), "show"]]));
+
 // Blog
 $routes->add("blog", new Route("/blog", ['_controller'=>[new BlogController(), "index"]]));
 
