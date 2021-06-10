@@ -15,23 +15,25 @@
         <link href="assets/css/pokemonde.css" rel="stylesheet" />
     {% endblock %}
 </head>
-<body>
-    <!--Header -->
-    {% include 'partials/header.html.twig' %}
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <!--Header -->
+        {% include 'partials/header.html.twig' %}
 
-    <!--Body -->
-    {% block body %}{% endblock %}
+        <!--Body -->
+        {% block body %}{% endblock %}
 
-    <!-- Javascripts global -->
-    {% block javascripts %}
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="assets/js/template.js"></script>
-        <script src="assets/js/pokemonde.js"></script>
-    {% endblock %}
+        <!-- Javascripts global -->
+        {% block javascripts %}
+            <!-- Bootstrap core JS-->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Core theme JS-->
+            <script src="assets/js/template.js"></script>
+            <script src="assets/js/pokemonde.js"></script>
+        {% endblock %}
 
-    <!--Footer -->
-{% include 'partials/footer.html.twig' %}
+        <!--Footer -->
+    {% include 'partials/footer.html.twig' %}
+    </main>
 </body>
 </html>
