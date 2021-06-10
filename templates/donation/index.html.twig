@@ -1,7 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Don - Pokemonde{% endblock %}
+{% block title %}Don - Pokemonde
+{% endblock %}
 
 {% block body %}
-    <h1>Vous êtes sur la page de don</h1>
+	<section class="py-5">
+		<div
+			class="container px-5">
+			<!-- Donation form-->
+			<div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+				<div class="text-center mb-5">
+					<div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						<i class="bi bi-envelope"></i>
+					</div>
+					<h1 class="fw-bolder">Aide notre association à continuer d'exister</h1>
+					<p class="lead fw-normal text-muted mb-0">Envoie nous des Pokédollars</p>
+				</div>
+				<div class="row gx-5 justify-content-center">
+					<div class="col-lg-8 col-xl-6">
+						<form
+							action="don" method="POST" id="donationForm">
+							<!-- Donation input-->
+							<div class="input-group mb-3">
+								<span class="input-group-text"><img class="pokeball" src="https://static.miraheze.org/pokeclickerwiki/8/89/PokeCoin.png" alt="pokédollar"></span>
+								<input type="text" class="form-control" name='amount' aria-label="Amount">
+							</div>
+							{% include 'partials/button.html.twig' %}
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 {% endblock %}
