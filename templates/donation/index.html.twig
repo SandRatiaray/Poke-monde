@@ -5,13 +5,24 @@
 
 {% block body %}
 	<section class="py-5">
-		<div
-			class="container px-5">
+		<div class="container px-5">
+			{% if session.don_ok %}
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					{{ session.don_ok }}
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			{% endif %}
+			{% if not session.user %}
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					Connectez-vous pour faire un don. <a href="/connexion">Se connecter</a>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			{% endif %}
 			<!-- Donation form-->
 			<div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
 				<div class="text-center mb-5">
 					<div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-						<i class="bi bi-envelope"></i>
+						<i class="bi bi-currency-euro"></i>
 					</div>
 					<h1 class="fw-bolder">Aide notre association à continuer d'exister</h1>
 					<p class="lead fw-normal text-muted mb-0">Envoie nous des Pokédollars</p>
@@ -25,7 +36,16 @@
 								<span class="input-group-text"><img class="pokeball" src="https://static.miraheze.org/pokeclickerwiki/8/89/PokeCoin.png" alt="pokédollar"></span>
 								<input type="text" class="form-control" name='amount' aria-label="Amount">
 							</div>
-							{% include 'partials/button.html.twig' %}
+							{% if not session.user %}
+								<div class="form-floating mb-3">
+									<!-- Submit Button-->
+									<div class="d-grid">
+										<button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Valider</button>
+									</div>
+								</div>
+							{% else %}
+								{% include 'partials/button.html.twig' %}
+							{% endif %}
 						</form>
 					</div>
 				</div>

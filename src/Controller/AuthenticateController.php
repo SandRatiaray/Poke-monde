@@ -35,12 +35,12 @@ class AuthenticateController
             if($checkUser) {
                 // Création de la variable user dans la session
                 $_SESSION['user'] = [
+                    'id' => $checkUser->id,
                     'lastname' => $checkUser->last_name,
                     'firstname' => $checkUser->first_name,
                     'email' => $checkUser->email,
                     'password' => $checkUser->password,
                 ];
-                print_r($_SESSION['user'] );
             } else{
                 $_SESSION['none_user'] = "Les identifiants sont incorrects.";
             }

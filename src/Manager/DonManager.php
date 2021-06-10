@@ -2,6 +2,7 @@
 
 namespace App\Manager;
 
+use App\Entity\Don;
 use Vendor\database\Database;
 use App\Manager\ManagerInterface;
 use Vendor\database\Manager;
@@ -43,7 +44,7 @@ class DonManager extends Manager implements ManagerInterface
         VALUES (:amount, :user)";
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":amount", $entity->getAmount());
-        $prepare->bindValue(":user", $entity->getUser());
+        $prepare->bindValue(":user", $entity->getUser()->getId());
         $prepare->execute();
     }
 
