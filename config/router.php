@@ -30,4 +30,8 @@ $routes->add("don", new Route("/don", ['_controller'=>[new DonationController(),
 $routes->add("pokemon", new Route("/pokemon", ['_controller'=>[new PokemonController(), "index"]]));
 // Blog
 $routes->add("blog", new Route("/blog", ['_controller'=>[new BlogController(), "index"]]));
+// Article Create
+$routes->add("add", new Route("/blog/add", ['_controller'=>[new BlogController(), "add"]]));
+// Article Edit
+$routes->add("edit", new Route("/blog/edit/{id}", ['_controller'=>[new BlogController(), "edit"]]));
 
