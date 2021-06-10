@@ -60,11 +60,11 @@ class ProductManager extends Manager implements ManagerInterface
      * @return mixed
      * supprime un produit grâce à son id
      */
-    public function delete($entity)
+    public function delete($id)
     {
         $statement = "DELETE FROM product WHERE id = :id";
         $prepare = $this->db->prepare($statement);
-        $prepare->bindValue(":id", $entity->getId());
+        $prepare->bindValue(":id", $id);
         $prepare->execute();
     }
 
@@ -80,9 +80,7 @@ class ProductManager extends Manager implements ManagerInterface
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":id", $id);
         $prepare->execute();
-        $query = $prepare->fetch(\PDO::FETCH_OBJ, product::class);
-        var_dump($query);
-        return ;
+        return $prepare->fetch(\PDO::FETCH_CLASS, product::class);
     }
 
     /**
