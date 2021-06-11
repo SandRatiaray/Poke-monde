@@ -30,6 +30,11 @@ $routes->add("contact", new Route("/contact", ['_controller'=>[new ContactContro
 $routes->add("don", new Route("/don", ['_controller'=>[new DonationController(), "index"]]));
 // Pokemon
 $routes->add("pokemon", new Route("/pokemon", ['_controller'=>[new PokemonController(), "index"]]));
-// Blog
+// Article
 $routes->add("blog", new Route("/blog", ['_controller'=>[new BlogController(), "index"]]));
+// Article Create
+$routes->add("creerArticle", new Route("/creerArticle", ['_controller'=>[new BlogController(), "creerArticle"]]));
+// Article Edit
+$routes->add("modifierArticle", new Route("/modifierArticle", ['_controller'=>[new BlogController(), "modifierArticle"]]));
+
 

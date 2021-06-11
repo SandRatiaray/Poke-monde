@@ -51,7 +51,7 @@ class Article
     {
         return $this->title;
     }
-    public function setTitle($title): self
+    public function setTitle($title)
     {
         $this->title = $title;
         return $this;
@@ -61,7 +61,7 @@ class Article
     {
         return $this->content;
     }
-    public function setContent($content): self
+    public function setContent($content)
     {
         $this->content = $content;
         return $this;
@@ -71,7 +71,7 @@ class Article
     {
         return $this->createdAt;
     }
-    public function setCreatedAt($createdAt): self
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
         return $this;

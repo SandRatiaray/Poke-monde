@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{%block title %}Blog - Pokemonde{% endblock %}
+
+{% block body %}
+    <section class="py-5">
+        <div class="container px-5">
+            <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-person-square"></i></div>
+                    <h1 class="fw-bolder">Modifier l'article</h1>
+                    <p class="lead fw-normal text-muted mb-0"></p>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6">
+                        <form id="modifierArticle" action="modifierArticle" method="POST">
+                            <!-- Email address input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="title" type="text" name="title" placeholder="Titre" />
+                                <label for="title">Titre</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="content" type="text" name="content" placeholder="Contenu" />
+                                <label for="content">Contenu</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="datetime-local" id="createdAt"
+                                       name="createdAt" value="2018-06-12T19:30">
+                                <label for="createdAt"></label>
+                            </div>
+                            <!-- Submit Button-->
+                            <div class="d-grid"><button class="btn btn-primary btn-lg " id="modifierArticle" type="submit">Modifier l'article</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+{% endblock %}
