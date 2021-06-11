@@ -18,6 +18,7 @@ class PokemonController
      */
     public function index (Request $request, $template) {
         $manager = new PokemonManager();
+        $pokemonType = new PokemonTypeManager();
         $pokemons = $manager->findAll();
         echo $template->render('pokemon/index.html.twig', [
             'pokemons' => $pokemons
@@ -27,20 +28,17 @@ class PokemonController
 
     public function create(Request $request, $template){
         {
+                // si le formulaire est soumis
             if ($request->isMethod('POST')) {
+                // on crée un nouveau pokemon
                 $pokemon = new Pokemon();
                 $manager = new PokemonManager();
-                $datas = $request->request->all();
-/*                var_dump($datas);*/
-                $pokemon->setType($datas['type']);
-                $pokemon->setRace($datas['race']);
-                $pokemon->setRarity($datas['rarity']);
-                var_dump($pokemon);
+                $pokemon->hydrate($request->request->all());
                 $manager->add($pokemon);
-                var_dump($manager);
-                header("Location:/");
+                print_r($pokemon);
+                //header("Location:/pokemon/". $pokemon->getId()."");
             }
-           $managerType = new PokemonTypeManager();
+            $managerType = new PokemonTypeManager();
             $managerRace = new PokemonRaceManager();
             $managerRarity = new PokemonRarityManager();
             $types = $managerType->findAll();
@@ -54,6 +52,20 @@ class PokemonController
                 'raritys' => $raritys
             ]);
         }
+    }
+
+    /**
+     * Page de la liste des pokemons
+     * @param Request $request
+     * @param $template
+     */
+    public function show (Request $request, $template) {
+          $manager = new PokemonManager();
+          $pokemon = $manager->findOne($request->get('id'));
+        echo $template->render('pokemon/show.html.twig', [
+            'pokemon' => $pokemon
+        ]);
+
     }
 
     public function edit(Request $request, $template){
@@ -72,8 +84,8 @@ class PokemonController
         }
     }
 
-    public function delete($id){
+    public function delete(Pokemon $pokemon){
         $manager = new PokemonManager();
-        $manager->delete($id);
+        $manager->delete($pokemon->getNameSlug());
     }
 }

@@ -19,9 +19,9 @@ class PokemonTypeManager extends Manager implements ManagerInterface
     {
         $statement = "SELECT * FROM pokemonType WHERE id = :id LIMIT 1";
         $prepare = $this->db->prepare($statement);
-        $prepare->bindValue(":name", $entity->getName());
+        $prepare->bindValue(":id", $entity->getId());
         $prepare->execute();
-        return $prepare->fetch(\PDO::FETCH_CLASS, PokemonType::class);
+        return $prepare->fetch(\PDO::FETCH_OBJ);
     }
 
     /**

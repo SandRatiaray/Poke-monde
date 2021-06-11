@@ -33,7 +33,9 @@ $routes->add("pokemonNew", new Route("/pokemonNew", ['_controller'=>[new Pokemon
 //édition des pokemons
 $routes->add("pokemonEdit", new Route("/pokemonEdit/{id}", ['_controller'=>[new PokemonController(), "edit"]]));
 //pokemon par ID
-$routes->add("pokemonShow", new Route("/pokemonShow/{id}", ['_controller'=>[new PokemonController(), "show"]]));
+$routes->add("pokemonShow", new Route("/pokemon/{nameSlug}", ['_controller'=>[new PokemonController(), "show"]]));
+//Delete pokemon
+$routes->add("pokemonDelete", new Route("/delete/{nameSlug}", ['_controller'=>[new PokemonController(), "delete"]]));
 
 // Blog
 $routes->add("blog", new Route("/blog", ['_controller'=>[new BlogController(), "index"]]));
