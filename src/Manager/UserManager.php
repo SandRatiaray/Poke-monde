@@ -25,6 +25,22 @@ class UserManager extends Manager implements ManagerInterface
     }
 
     /**
+     * Find one user by id
+     * @param $id
+     * @return mixed
+     */
+    public function findOneById($id)
+    {
+        $statement = "SELECT * FROM user WHERE id = :id LIMIT 1";
+        $prepare = $this->db->prepare($statement);
+        $prepare->bindValue(":id", $id);
+        $prepare->execute();
+//        return $prepare->fetch(\PDO::FETCH_OBJ);
+        $prepare->setFetchMode(\PDO::FETCH_CLASS, User::class);
+        return $prepare->fetch();
+    }
+
+    /**
      * Get all users
      * @return array|mixed
      */
@@ -69,8 +85,9 @@ class UserManager extends Manager implements ManagerInterface
                 address = :address,
                 zip_code = :zipcode,
                 tel = :tel 
-                WHERE email=:email LIMIT 1";
+                WHERE id = :id";
         $prepare = $this->db->prepare($statement);
+        $prepare->bindValue(":id", $entity->getId());
         $prepare->bindValue(":lastname", $entity->getLastName());
         $prepare->bindValue(":firstname", $entity->getFirstName());
         $prepare->bindValue(":email", $entity->getEmail());
