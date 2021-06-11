@@ -43,7 +43,8 @@ class ProductManager extends Manager implements ManagerInterface
                 category_id = :category,
                 price = :price,
                 description = :description,
-                image = :image";
+                image = :image 
+                Where id = :id";
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":name", $entity->getName());
         $prepare->bindValue(":nameSlug", $entity->getNameSlug());
@@ -52,6 +53,7 @@ class ProductManager extends Manager implements ManagerInterface
         $prepare->bindValue(":price", $entity->getPrice());
         $prepare->bindValue(":description", $entity->getDescription());
         $prepare->bindValue(":image", $entity->getImage());
+        $prepare->bindValue(":id", $entity->getId());
         $prepare->execute();
     }
 
@@ -78,9 +80,10 @@ class ProductManager extends Manager implements ManagerInterface
     {
         $statement = "SELECT * FROM product WHERE id = :id";
         $prepare = $this->db->prepare($statement);
-        $prepare->bindValue(":id", (int)$id);
+        $prepare->bindValue(":id", $id);
         $prepare->execute();
-        return $prepare->fetch(\PDO::FETCH_CLASS, product::class);
+        $prepare->setFetchMode(\PDO::FETCH_CLASS, Product::class);
+        return $prepare->fetch();
     }
 
     /**
