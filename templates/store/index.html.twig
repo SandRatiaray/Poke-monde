@@ -40,7 +40,12 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="produit/new">Voir le produit</a></div>
+                                <div class="text-center">
+                                    {# <a class="btn btn-success mt-auto" href="/produit/view/{{produit.id}}">Voir le produit</a>
+                                    <a class="btn btn-outline-dark mt-auto" href="/produit/edit/{{produit.id}}">Modifier le produit</a> #}
+                                    <a class="btn btn-success mt-auto" href="/produit/view/{{produit.id}}"> <i class="bi bi-eye"></i></a>
+                                    <a class="btn btn-warning mt-auto" href="/produit/edit/{{produit.id}}"><i class="bi bi-pencil"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>

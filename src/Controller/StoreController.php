@@ -50,12 +50,26 @@ class StoreController
         }
     }
 
-    public function update($id, $template){
+    public function edit($request, $template){
+        //récupère le lien de la request
+        $array = explode("/", $request->getUri());
+        //récupère le dernier élément de l'url qui est l'id
+        $id = (int)end($array);
+
+        $manager = new ProductManager();
+        $produit = $manager->findOne($id);
+        var_dump($produit);
+        
+        echo $template->render('store/update.html.twig', ["produit"=>$produit]);
+
+    }
+
+    public function update(Request $request, $template){
         if($request->isMethod('POST')){
             $product = new Product();
             $manager = new ProductManager();
 
-            $product->hydrate((array)$request->request->all());
+            $product->hydrate($request->request->all());
             try{
                 $manager->edit($product);
                 header('Location:/boutique');

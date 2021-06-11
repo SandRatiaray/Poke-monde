@@ -70,15 +70,15 @@ class ProductManager extends Manager implements ManagerInterface
 
 
     /**
-     * @var entity
+     * @var int
      * @return mixed|product 
      * retourne un produit en fonction de son id
      */
     public function findOne($id)
     {
-        $statement = "SELECT * FROM product WHERE id = :id LIMIT 1";
+        $statement = "SELECT * FROM product WHERE id = :id";
         $prepare = $this->db->prepare($statement);
-        $prepare->bindValue(":id", $id);
+        $prepare->bindValue(":id", (int)$id);
         $prepare->execute();
         return $prepare->fetch(\PDO::FETCH_CLASS, product::class);
     }

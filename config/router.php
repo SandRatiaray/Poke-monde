@@ -24,7 +24,9 @@ $routes->add("deconnexion", new Route("/deconnexion", ['_controller'=>[new Authe
 $routes->add("inscription", new Route("/inscription", ['_controller'=>[new AuthenticateController, "signUp"]]));
 // Boutique
 $routes->add("boutique", new Route("/boutique", ['_controller'=>[new StoreController(), "index"]]));
-$routes->add("produit", new Route("/produit", ['_controller'=>[new StoreController, "add"]]));
+$routes->add("produit_create", new Route("/produit", ['_controller'=>[new StoreController, "add"]]));
+$routes->add("produit_edit", new Route("/produit/edit/{id}", ['_controller'=>[new StoreController, "edit"]]));
+$routes->add("produit_update", new Route("/produit/update", ['_controller'=>[new StoreController, "update"]]));
 // Contact
 $routes->add("contact", new Route("/contact", ['_controller'=>[new ContactController(), "index"]]));
 // Don

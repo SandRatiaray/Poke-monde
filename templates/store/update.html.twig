@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product - Pokemonde{% endblock %}
+{% block stylesheets %}
+     <!-- Core theme CSS (includes Bootstrap)-->
+     <link href="../assets/css/template.css" rel="stylesheet" />
+     <link href="../assets/css/pokemonde.css" rel="stylesheet" />
+ {% endblock %}
+
+{% block body %}
+        <section class="py-5">
+        <div class="container px-5">
+            <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-bag-plus-fill"></i></div>
+                    <h1 class="fw-bolder">Vous êtes sur la page de update d'un produit</h1>
+                    <p class="lead fw-normal text-muted mb-0">Ajoutez les informations du produit</p>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6">
+                        <form id="siginForm" action="produit" method="POST">
+                            <!-- Name input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" type="text" name="name" placeholder="Entrez le nom du produit..." data-sb-validations="required" value="" required/>
+                                <label for="name">Nom du produit</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">Le nom de l'article obligatoire.</div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="nameSlug" type="text" name="nameSlug" placeholder="Entrez le slug du produit..." data-sb-validations="required" value="" required/>
+                                <label for="nameSlug">Slug</label>
+                                <div class="invalid-feedback" data-sb-feedback="nameSlug:required">Le slug est obligatoire.</div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="stock" type="number" name="stock" placeholder="quandtité" data-sb-validations="required" value="" required/>
+                                <label for="stock">Quantité</label>
+                                <div class="invalid-feedback" data-sb-feedback="stock:required">La quantité est obligatoire.</div>
+                            </div>
+                            
+                            <div class="form-floating mb-3">
+                                <select class="form-control" id="category" name="category" data-sb-validations="required" required>
+                                    {% for categorie in categoriesProduits %}
+                                        <option value="{{categorie.id}}">{{categorie.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="category">Catégorie</label>
+                                <div class="invalid-feedback" data-sb-feedback="category:required">La catégorie est obligatoire.</div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="price" type="number" name="price" placeholder="Entrez le prix..." data-sb-validations="required" value="" required/>
+                                <label for="price">Prix</label>
+                                <div class="invalid-feedback" data-sb-feedback="price:required">L'adresse est obligatoire.</div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="description" name="description" placeholder="entrez la description..." required></textarea>
+                                <label for="description">Description</label>
+                                {# <div class="invalid-feedback" data-sb-feedback="description:required">Le code postal est obligatoire.</div> #}
+                            </div>
+                            <!-- Phone number input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="image" type="text" name="image" placeholder="entrez le lien de l'image ici" value="" required/>
+                                <label for="image">Lien de l'image</label>
+                            </div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Produit créé avec succès!</div>
+                                    To activate this form, sign up at
+                                    <br />
+                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            <!-- Submit Button-->
+                            <div class="d-grid"><button class="btn btn-primary btn-lg " id="signupSubmit" type="submit">Créer</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+         <!-- Core theme JS-->
+         <script src="../assets/js/template.js"></script>
+         <script src="../assets/js/pokemonde.js"></script>
+ {% endblock %}
