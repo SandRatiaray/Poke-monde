@@ -40,13 +40,16 @@ class AuthenticateController
                     'firstname' => $checkUser->first_name,
                     'email' => $checkUser->email,
                     'password' => $checkUser->password,
+                    'tel' => $checkUser->tel,
+                    'address' => $checkUser->address,
+                    'zipcode' => $checkUser->zip_code
                 ];
             } else{
                 $_SESSION['none_user'] = "Les identifiants sont incorrects.";
             }
 
-            // Redirection vers la page des pokemons
-            header("Location:/connexion");
+            // Redirection vers la page de profil
+            header("Location:/profil");
         }
 
         echo $template->render('authenticate/sign_in.html.twig', []);

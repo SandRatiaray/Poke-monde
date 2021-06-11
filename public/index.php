@@ -20,6 +20,7 @@ $dotEnv->load();
 
 // Créer la requête
 $request = Request::createFromGlobals();
+
 // Ajout du routeur
 require ROOT.'/config/router.php';
 
