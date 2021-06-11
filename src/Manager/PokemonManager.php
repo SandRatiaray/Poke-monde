@@ -17,9 +17,9 @@ class PokemonManager extends Manager implements ManagerInterface
     public function findOne($entity)
     {
         // TODO: Implement findOne() method.
-        $statement = "SELECT * FROM $this->table WHERE id = :id LIMIT 1";
+        $statement = "SELECT * FROM $this->table WHERE nameSlug = :nameSlug LIMIT 1";
         $prepare = $this->db->prepare($statement);
-        $prepare->bindValue(":id", $entity->getId());
+        $prepare->bindValue(":id", $entity->getNameSlug());
         $prepare->execute();
         return $prepare->fetch(\PDO::FETCH_OBJ, Pokemon::class);
     }
@@ -55,6 +55,7 @@ class PokemonManager extends Manager implements ManagerInterface
         $prepare->bindValue(":image", $entity->getImage());
         $prepare->bindValue(":available", $entity->getAvailable());
         $prepare->execute();
+        return $prepare->fetch();
     }
 
 
@@ -100,9 +101,9 @@ class PokemonManager extends Manager implements ManagerInterface
     public function delete($entity)
     {
         // TODO: Implement delete() method.
-        $statement = "DELETE FROM $this->table WHERE id = :id";
+        $statement = "DELETE FROM $this->table WHERE nameSlug = :nameSlug";
         $prepare = $this->db->prepare($statement);
-        $prepare->bindValue(":id", $entity->getId());
+        $prepare->bindValue(":nameSlug", $entity->getNameSlug());
         $prepare->execute();
     }
 
