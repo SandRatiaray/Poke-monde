@@ -15,7 +15,7 @@ class Contact
     private int $id;
     /**
      * Message laissé par l'utilisateur
-     * @var string
+     * @var $message
      */
     private string $message;
     /**
@@ -41,7 +41,7 @@ class Contact
     }
 
     /**
-     * @param string $message
+     * @param string 
      */
     public function setMessage(string $message): void
     {
@@ -67,11 +67,11 @@ class Contact
      * Hydrate
      * @param array $contact
      */
-    public function hydrate (array $contact)
+    public function hydrate(array $contact)
     {
         foreach ($contact as $key => $value) {
-            $method = "set". ucfirst($key);
-            if(method_exists($this, $method)){
+            $method = "set" . ucfirst($key);
+            if (method_exists($this, $method)) {
                 $this->$method($value);
             }
         }

@@ -11,8 +11,12 @@
                 <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
                 <li class="nav-item"><a class="nav-link" href="/don">Don</a></li>
                 <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="/connexion">Connexion</a></li>
-                <li class="nav-item"><a class="nav-link" href="/inscription">Inscription</a></li>
+                {% if not session.user %}
+                    <li class="nav-item"><a class="nav-link" title="Se connecter"  href="/connexion">Se connecter</a></li>
+                    <li class="nav-item"><a class="nav-link" title="S'inscrire" href="/inscription">S'inscrire</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" title="Déconnexion" href="/deconnexion">Se déconnecter</a></li>
+                {% endif%}
             </ul>
         </div>
     </div>
