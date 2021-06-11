@@ -27,8 +27,6 @@ class StoreController
     }
 
     public function add (Request $request, $template){
-
-
         if($request->isMethod('POST')){
             $product = new Product();
             $manager = new ProductManager();
@@ -52,7 +50,7 @@ class StoreController
         }
     }
 
-    public function update(Request $request, $template){
+    public function update($id, $template){
         if($request->isMethod('POST')){
             $product = new Product();
             $manager = new ProductManager();
