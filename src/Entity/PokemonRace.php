@@ -23,17 +23,6 @@ class PokemonRace
     private $nameSlug;
 
     /**
-     * PokemonRace constructor.
-     * @param $name
-     * @param $nameSlug
-     */
-    public function __construct($name, $nameSlug)
-    {
-        $this->name = $name;
-        $this->nameSlug = $nameSlug;
-    }
-
-    /**
      * @param array $pokemonRace
      */
     public function hydrate(array $pokemonRace)
