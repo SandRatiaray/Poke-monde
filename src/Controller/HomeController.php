@@ -16,7 +16,7 @@ class HomeController
     public function index(Request $request, $template)
     {
         $manager = new PokemonManager();
-        $pokemons = $manager->findAll();
+        $pokemons = $manager->findThree();
         echo $template->render('home/index.html.twig', [
             'pokemons' => $pokemons
         ]);
