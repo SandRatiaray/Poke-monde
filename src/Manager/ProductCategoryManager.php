@@ -84,7 +84,7 @@ class ProductCategoryManager extends Manager implements ManagerInterface
      */
     public function findAll()
     {
-        $query = $this->db->query("SELECT * FROM productcategory");
+        $query = $this->db->query("SELECT * FROM productCategory");
         return $query->fetchAll(\PDO::FETCH_CLASS, productcategory::class);
     }
 }
