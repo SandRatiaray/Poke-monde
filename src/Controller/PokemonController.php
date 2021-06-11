@@ -17,8 +17,9 @@ class PokemonController
      * @param $template
      */
     public function index (Request $request, $template) {
+        // on appelle le PokemonManager
         $manager = new PokemonManager();
-        $pokemonType = new PokemonTypeManager();
+        // on utilise la requete findAll() du manager
         $pokemons = $manager->findAll();
         echo $template->render('pokemon/index.html.twig', [
             'pokemons' => $pokemons
@@ -35,7 +36,6 @@ class PokemonController
                 $manager = new PokemonManager();
                 $pokemon->hydrate($request->request->all());
                 $manager->add($pokemon);
-                print_r($pokemon);
                 //header("Location:/pokemon/". $pokemon->getId()."");
             }
             $managerType = new PokemonTypeManager();
@@ -60,32 +60,26 @@ class PokemonController
      * @param $template
      */
     public function show (Request $request, $template) {
-          $manager = new PokemonManager();
-          $pokemon = $manager->findOne($request->get('id'));
+        $id =$request->query->get('id');
+    if ($id){
+        $manager = new PokemonManager();
+        $pokemon = $manager->findOne($id);
+    }
         echo $template->render('pokemon/show.html.twig', [
             'pokemon' => $pokemon
         ]);
 
     }
 
-    public function edit(Request $request, $template){
-        if($request->isMethod('POST')){
-            $product = new Product();
-            $manager = new ProductManager();
-
-            $product->hydrate((array)$request->request->all());
-            try{
-                $manager->edit($product);
-                header('Location:/boutique');
-            }
-            catch(Exception $e){
-                print_r("erreur lors de l'ajout de la mise à jour du produit");
-            }
+    public function delete(Request $request, $template){
+        $id =$request->query->get('id');
+        print_r($id);
+        die;
+        if ($id){
+            $manager = new PokemonManager();
+            $pokemon = $manager->delete($id);
+            header("Location:/pokemons");
         }
-    }
 
-    public function delete(Pokemon $pokemon){
-        $manager = new PokemonManager();
-        $manager->delete($pokemon->getNameSlug());
     }
 }

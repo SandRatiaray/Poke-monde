@@ -17,9 +17,7 @@
                 <div class="card-body">
                     <h5 class="card-title text-center">{{ pokemon.name|upper }} <img src="pokeball.ico"  style="height: 30px;" alt=""></h5>
                     <p class="card-text">Pokemon {{ pokemon.rarity.name }} très gentil de type {{ pokemon.type.name}} </p>
-                    <a href="pokemon/{{ pokemon.nameSlug }}" class="btn btn-primary">Voir plus</a>
-                    <a href="#" class="btn btn-success">Edit</a>
-                    <a href="delete/{{ pokemmon.nameSlug }}" class="btn btn-danger">Supprimer</a>
+                    <a href="pokemon?id={{ pokemon.id }}" class="btn btn-primary">Voir plus</a>
                 </div>
             </div>
             {% endfor %}

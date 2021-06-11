@@ -13,6 +13,27 @@
         <h1 class="text-center">Venez découvrir {{ pokemon.name }}</h1>
         <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1920px-International_Pok%C3%A9mon_logo.svg.png' style="height: 150px;" class=' img-fluid ' >
     </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <img src="{{ pokemon.image }}" class="card-img-top img-fluid" style="height: 420px; width: 310px;" alt="...">
+            <div class="mt-5">
+                <a href="#" class="btn btn-success">Edit</a>
+                <a href="deletePokemon?id={{ pokemmon.id }}" class="btn btn-danger">Supprimer</a>
+            </div>
+        </div>
+        <div class="text-center justify-content-center col-6 mt-5">
+            <div>
+                <div class="col-6">
+                <h5 class="text-center">{{ pokemon.name|upper }} <img src="pokeball.ico"  style="height: 30px;" alt=""></h5>
+                <h5 class="text-center">Taille: {{ pokemon.size }} cm</h5>
+                <h5 class="text-center">Poids: {{ pokemon.weight }} kg</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
     </section>
 {% endblock %}
  {% block javascripts %}

@@ -24,6 +24,7 @@ $routes->add("deconnexion", new Route("/deconnexion", ['_controller'=>[new Authe
 $routes->add("inscription", new Route("/inscription", ['_controller'=>[new AuthenticateController, "signUp"]]));
 // Boutique
 $routes->add("boutique", new Route("/boutique", ['_controller'=>[new StoreController(), "index"]]));
+$routes->add("produit", new Route("/produit", ['_controller'=>[new StoreController, "add"]]));
 // Contact
 $routes->add("contact", new Route("/contact", ['_controller'=>[new ContactController(), "index"]]));
 // Don
@@ -33,11 +34,11 @@ $routes->add("pokemons", new Route("/pokemons", ['_controller'=>[new PokemonCont
 //créer nouveaux pokemons
 $routes->add("pokemonNew", new Route("/pokemonNew", ['_controller'=>[new PokemonController(), "create"]]));
 //édition des pokemons
-$routes->add("pokemonEdit", new Route("/pokemonEdit/{id}", ['_controller'=>[new PokemonController(), "edit"]]));
+$routes->add("pokemonEdit", new Route("/pokemonEdit", ['_controller'=>[new PokemonController(), "edit"]]));
 //pokemon par ID
-$routes->add("pokemonShow", new Route("/pokemon/{nameSlug}", ['_controller'=>[new PokemonController(), "show"]]));
+$routes->add("pokemonShow", new Route("/pokemon", ['_controller'=>[new PokemonController(), "show"]]));
 //Delete pokemon
-$routes->add("pokemonDelete", new Route("/delete/{nameSlug}", ['_controller'=>[new PokemonController(), "delete"]]));
+$routes->add("deletePokemon", new Route("/deletePokemon", ['_controller'=>[new PokemonController(), "delete"]]));
 
 // Blog
 $routes->add("blog", new Route("/blog", ['_controller'=>[new BlogController(), "index"]]));

@@ -120,6 +120,7 @@ class Statements
             category_id INT NOT NULL,
             price   FLOAT NOT NULL,
             description TEXT NOT NULL,
+            image VARCHAR(150) NULL,
             PRIMARY KEY(id),
             CONSTRAINT fk_product_category
                 FOREIGN KEY(category_id)
