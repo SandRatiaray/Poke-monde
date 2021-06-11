@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Controller;
 
+use App\Entity\Pokemon;
+use App\Manager\PokemonManager;
 use Symfony\Component\HttpFoundation\Request;
 
 class HomeController
@@ -10,7 +13,12 @@ class HomeController
      * @param Request $request
      * @param $template
      */
-    public function index (Request $request, $template) {
-        echo $template->render('home/index.html.twig', []);
+    public function index(Request $request, $template)
+    {
+        $manager = new PokemonManager();
+        $pokemons = $manager->findThree();
+        echo $template->render('home/index.html.twig', [
+            'pokemons' => $pokemons
+        ]);
     }
 }

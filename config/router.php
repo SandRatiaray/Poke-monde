@@ -6,6 +6,7 @@ use App\Controller\ContactController;
 use App\Controller\DonationController;
 use App\Controller\HomeController;
 use App\Controller\PokemonController;
+use App\Controller\UserController;
 use App\Controller\StoreController;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
@@ -20,6 +21,12 @@ $routes->add("home", new Route("/", ['_controller'=>[new HomeController, "index"
 $routes->add("connexion", new Route("/connexion", ['_controller'=>[new AuthenticateController(), "signIn"]]));
 // Deconnexion
 $routes->add("deconnexion", new Route("/deconnexion", ['_controller'=>[new AuthenticateController(), "signOut"]]));
+// Profil
+$routes->add("profil", new Route("/profil", ['_controller'=>[new UserController(), "profil"]]));
+// Éditer un utilisateur
+$routes->add("editerUtilisateur", new Route("/editerUtilisateur", ['_controller'=>[new UserController(), "edit"]]));
+// Supprimer un utilisateur
+$routes->add("supprimerUtilisateur", new Route("/supprimerUtilisateur", ['_controller'=>[new UserController(), "delete"]]));
 // Inscription
 $routes->add("inscription", new Route("/inscription", ['_controller'=>[new AuthenticateController, "signUp"]]));
 // Boutique

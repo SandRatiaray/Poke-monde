@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Manager;
+
 use App\Entity\Pokemon;
 use App\Manager\ManagerInterface;
 use Vendor\database\Database;
@@ -23,6 +25,18 @@ class PokemonManager extends Manager implements ManagerInterface
         $prepare->execute();
         $prepare->setFetchMode(\PDO::FETCH_CLASS, Pokemon::class);
         return $prepare->fetch();
+    }
+
+    /**
+     * @param $entity
+     * @return mixed
+     * retourne un pokemon par son id
+     */
+    public function findThree()
+    {
+        // TODO: Implement findOne() method.
+        $sql = $this->db->query("SELECT * FROM $this->table order by id LIMIT 3");
+        return $sql->fetchAll(\PDO::FETCH_CLASS, Pokemon::class);
     }
 
     /**
