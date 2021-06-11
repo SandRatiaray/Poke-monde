@@ -32,6 +32,8 @@ $routes->add("inscription", new Route("/inscription", ['_controller'=>[new Authe
 // Boutique
 $routes->add("boutique", new Route("/boutique", ['_controller'=>[new StoreController(), "index"]]));
 $routes->add("produit", new Route("/produit", ['_controller'=>[new StoreController, "add"]]));
+$routes->add("produitEditer", new Route("/produitEditer", ['_controller'=>[new StoreController, "edit"]]));
+$routes->add("produitSupprimer", new Route("/produitSupprimer", ['_controller'=>[new StoreController, "delete"]]));
 // Contact
 $routes->add("contact", new Route("/contact", ['_controller'=>[new ContactController(), "index"]]));
 // Don

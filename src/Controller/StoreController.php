@@ -27,8 +27,6 @@ class StoreController
     }
 
     public function add (Request $request, $template){
-
-
         if($request->isMethod('POST')){
             $product = new Product();
             $manager = new ProductManager();
@@ -52,12 +50,14 @@ class StoreController
         }
     }
 
-    public function update(Request $request, $template){
+    public function edit(Request $request, $template){
+
         if($request->isMethod('POST')){
+            var_dump($request->request->all());
             $product = new Product();
             $manager = new ProductManager();
 
-            $product->hydrate((array)$request->request->all());
+            $product->hydrate($request->request->all());
             try{
                 $manager->edit($product);
                 header('Location:/boutique');
@@ -66,11 +66,31 @@ class StoreController
                 print_r("erreur lors de l'ajout de la mise à jour du produit");
             }
         }
+
+        $categoriManager = new ProductCategoryManager();
+        $categoriesProduits = $categoriManager->findAll();
+
+        $id = $request->query->get("id");
+        $manager = new ProductManager();
+        $produit = $manager->findOne($id);
+        echo $template->render('store/update.html.twig', ["produit"=>$produit, "categoriesProduits"=>$categoriesProduits]);
+
     }
 
-    public function delete($id, $template){
-        $manager = new ProductManager();
-        $manager->delete($id);
+    public function delete(Request $request, $template){
+        if($request->isMethod('POST')){
+            $product = new Product();
+            $manager = new ProductManager();
+
+            $product->hydrate($request->request->all());
+            try{
+                $manager->edit($product);
+                header('Location:/boutique');
+            }
+            catch(Exception $e){
+                print_r("erreur lors de l'ajout de la mise à jour du produit");
+            }
+        }
     }
 
 }
