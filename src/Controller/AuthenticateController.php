@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\Manager\UserManager;
@@ -42,7 +41,8 @@ class AuthenticateController
                     'password' => $checkUser->password,
                     'tel' => $checkUser->tel,
                     'address' => $checkUser->address,
-                    'zipcode' => $checkUser->zip_code
+                    'zipcode' => $checkUser->zip_code,
+                    'roles' => $checkUser->roles
                 ];
             } else{
                 $_SESSION['none_user'] = "Les identifiants sont incorrects.";

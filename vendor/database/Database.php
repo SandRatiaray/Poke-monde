@@ -1,6 +1,8 @@
 <?php
 namespace Vendor\database;
 
+use PDO;
+
 /**
  * Class Database
  * @package App\Database
@@ -57,10 +59,9 @@ class Database
      * Database connection (mariadb ou mysql)
      */
     private function connection () {
-        $this->db = new \PDO("mysql:host={$this->getDbHost()}:{$this->getDbPort()};dbname={$this->getDbName()}",
-            "{$this->getDbUser()}", "{$this->getDbPassword()}");
-        $this->db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        $this->db->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
+        $this->db = new PDO('mysql:host=localhost;dbname=charityPets;charset=utf8', 'hassan', 'sharigan60');
+        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     }
 
 

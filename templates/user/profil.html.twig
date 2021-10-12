@@ -33,6 +33,7 @@
                     <p class="lead fw-normal text-muted mb-0">Tel: <strong>{{ session.user.tel }}</strong></p>
                     <p class="lead fw-normal text-muted mb-0">Adresse: <strong>{{ session.user.address }}</strong></p>
                     <p class="lead fw-normal text-muted mb-0">Code postal: <strong>{{ session.user.zipcode }}</strong></p>
+                    <p class="lead fw-normal text-muted mb-0">Roles: <strong>{{ session.user.roles  == 2 ? "Admin" : "User"  }}</strong></p>
                     <br/>
                     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                         <a href="editerUtilisateur?id={{ session.user.id }}" type="button" title="Éditer mon profil" class="btn btn-success">Éditer</a>
@@ -40,26 +41,10 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <img class="img-fluid rounded-3 mb-5" src="https://img.redbull.com/images/c_fill,g_auto,w_1500,h_1000/q_auto,f_auto/redbullcom/2016/01/28/1331773493514_2/sacha-pikachu-pokemon-personnages-dessin-anime" alt="..." />
+                    <img class="img-fluid rounded-3 mb-5" src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/a/1/0/a10bf158bd_126018_choisir-animal-compagnie.jpg" alt="..." />
                 </div>
             </div>
             <hr />
-            <div class="row gx-5">
-                <h1 class="fw-bolder"></h1>
-                <div class="col-lg-6"><img class="img-fluid rounded-3 mb-5" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
-                <div class="col-lg-6"><img class="img-fluid rounded-3 mb-5" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
-            </div>
-            <div class="row gx-5 justify-content-center">
-                <div class="col-lg-6">
-                    <div class="text-center mb-5">
-                        <p class="lead fw-normal text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam deserunt architecto enim eos accusantium fugit recusandae illo iste dignissimos possimus facere ducimus odit voluptatibus exercitationem, ex laudantium illum voluptatum corporis.</p>
-                        <a class="text-decoration-none" href="#!">
-                            View project
-                            <i class="bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 {% endblock %}

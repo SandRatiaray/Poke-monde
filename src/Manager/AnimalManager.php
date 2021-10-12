@@ -2,19 +2,19 @@
 
 namespace App\Manager;
 
-use App\Entity\Pokemon;
+use App\Entity\Animal;
 use App\Manager\ManagerInterface;
 use Vendor\database\Database;
 use Vendor\database\Manager;
 
-class PokemonManager extends Manager implements ManagerInterface
+class AnimalManager extends Manager implements ManagerInterface
 {
-    private $table = "pokemon";
+    private $table = "animal";
 
     /**
      * @param $entity
      * @return mixed
-     * retourne un pokemon par son id
+     * retourne un animal par son id
      */
     public function findOne($entity)
     {
@@ -23,20 +23,20 @@ class PokemonManager extends Manager implements ManagerInterface
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":id", $entity);
         $prepare->execute();
-        $prepare->setFetchMode(\PDO::FETCH_CLASS, Pokemon::class);
+        $prepare->setFetchMode(\PDO::FETCH_CLASS, Animal::class);
         return $prepare->fetch();
     }
 
     /**
      * @param $entity
      * @return mixed
-     * retourne un pokemon par son id
+     * retourne un animal par son id
      */
-    public function findThree()
+    public function findLastTenPets()
     {
         // TODO: Implement findOne() method.
-        $sql = $this->db->query("SELECT * FROM $this->table order by id LIMIT 3");
-        return $sql->fetchAll(\PDO::FETCH_CLASS, Pokemon::class);
+        $sql = $this->db->query("SELECT * FROM $this->table WHERE available = 1 order by id DESC LIMIT 10");
+        return $sql->fetchAll(\PDO::FETCH_CLASS, Animal::class);
     }
 
     /**
@@ -46,19 +46,29 @@ class PokemonManager extends Manager implements ManagerInterface
     public function findAll()
     {
         // TODO: Implement findAll() method.
-        $sql = $this->db->query("SELECT * FROM $this->table");
-        return $sql->fetchAll(\PDO::FETCH_CLASS, Pokemon::class);
+        $sql = $this->db->query("SELECT * FROM $this->table WHERE available = 1");
+        return $sql->fetchAll(\PDO::FETCH_CLASS, Animal::class);
     }
 
+    /**
+     * @return array|mixed
+     * Retourne tous les pokemonns
+     */
+    public function findAllAnimals()
+    {
+        // TODO: Implement findAll() method.
+        $sql = $this->db->query("SELECT * FROM $this->table");
+        return $sql->fetchAll(\PDO::FETCH_CLASS, Animal::class);
+    }
 
     /**
      * @param $entity
      * @return mixed|void
-     * ajout un pokemon dans la base de données
+     * ajout un animal dans la base de données
      */
     public function add($entity)
     {
-        $statement = "INSERT INTO $this->table (name, nameSlug, type_id, race_id, weight, size, rarity_id, image, available) VALUE (:name, :nameSlug, :type, :race, :weight, :size, :rarity, :image, :available)";
+        $statement = "INSERT INTO $this->table (name, nameSlug, type, race, weight, size, image, available) VALUE (:name, :nameSlug, :type, :race, :weight, :size, :image, :available)";
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":name", $entity->getName());
         $prepare->bindValue(":nameSlug", $entity->getNameSlug());
@@ -66,7 +76,6 @@ class PokemonManager extends Manager implements ManagerInterface
         $prepare->bindValue(":race", $entity->getRace());
         $prepare->bindValue(":weight", $entity->GetWeight());
         $prepare->bindValue(":size", $entity->getSize());
-        $prepare->bindValue(":rarity", $entity->getRarity());
         $prepare->bindValue(":image", $entity->getImage());
         $prepare->bindValue(":available", $entity->getAvailable());
         $prepare->execute();
@@ -77,7 +86,7 @@ class PokemonManager extends Manager implements ManagerInterface
     /**
      * @param $entity
      * @return mixed|void
-     * met à jour les infos d'un pokemon dans la base de données
+     * met à jour les infos d'un animal dans la base de données
      */
     public function edit($entity)
     {
@@ -111,7 +120,7 @@ class PokemonManager extends Manager implements ManagerInterface
     /**
      * @param $entity
      * @return mixed|void
-     * Supprime un pokemon de la base de données
+     * Supprime un animal de la base de données
      */
     public function delete($entity)
     {
@@ -120,14 +129,14 @@ class PokemonManager extends Manager implements ManagerInterface
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":id", $entity);
         $prepare->execute();
-        $prepare->setFetchMode(\PDO::FETCH_CLASS, Pokemon::class);
+        $prepare->setFetchMode(\PDO::FETCH_CLASS, Animal::class);
         return $prepare->fetch();
     }
 
     /**
      * @param entity
      * @return mixed
-     * retourne les infos d'un pokemon en fonction de la recherche (à définir)
+     * retourne les infos d'un animal en fonction de la recherche (à définir)
      */
     public function findFirst()
     {

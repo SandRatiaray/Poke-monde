@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}L'animal -  {{ animal.name }}{% endblock %}
+
+ {% block stylesheets %}
+     <!-- Core theme CSS (includes Bootstrap)-->
+     <link href="../assets/css/template.css" rel="stylesheet"/>
+     <link href="../assets/css/animalde.css" rel="stylesheet"/>
+ {% endblock %}
+{% block body %}
+    {% if session.contact_ok %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session.contact_ok }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+    <section class="py-5">
+        <div class="text-center">
+            <h1 class="text-center">Venez découvrir {{ animal.name }}</h1>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <img src="{{ animal.image }}" class="card-img-top img-fluid" style="height: 420px; width: 310px;"
+                         alt="...">
+                    <div class="mt-5">
+                        <h2>Des informations concernant {{ animal.name }} ?</h2>
+
+                        <form method="post" id="contactForm" action="animal?id={{ animal.id }}">
+                            <div class="form-group mt-3">
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                    <option selected>{{ animal.name }}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">Message</label>
+                                <textarea type="text" class="form-control" id="formGroupExampleInput2"
+                                          placeholder="Another input">
+                                </textarea>
+                            </div>
+                            {% if not session.user %}
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    Connectez-vous pour écrire une message. <a href="/connexion">Se connecter</a>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                </div>
+                            {% else %}
+                                <div class="d-grid my-2">
+                                    <button class="btn btn-success btn-lg" id="submitButton" type="submit">Envoyer
+                                    </button>
+                                </div>
+                            {% endif %}
+
+                        </form>
+
+                    </div>
+                </div>
+                <div class="text-center justify-content-center col-6 mt-5">
+                    <div>
+                        <div class="col-6">
+                            <h5 class="text-center">{{ animal.name|upper }} <img src="pokeball.ico"
+                                                                                 style="height: 30px;" alt=""></h5>
+                            <h5 class="text-center">Taille: {{ animal.size }} cm</h5>
+                            <h5 class="text-center">Poids: {{ animal.weight }} kg</h5>
+                            <h5 class="text-center">Type: {{ animal.type }} </h5>
+                            <h5 class="text-center">Race: {{ animal.race }} </h5>
+                            <h5 class="text-center">Disponible: {{ (animal.available) ? 'OUI' : 'NON' }} </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}
+ {% block javascripts %}
+     <!-- Core theme JS-->
+     <script src="../assets/js/template.js"></script>
+     <script src="../assets/js/animalde.js"></script>
+ {% endblock %}

@@ -39,7 +39,7 @@ class ComposerStaticInit5edeb43f1c9ce6d69208416a85213fd5
     public static $prefixDirsPsr4 = array (
         'Vendor\\' => 
         array (
-            0 => 'F:\\Bureau\\COURS\\IPSSI\\PDO-PHP\\Poke-monde\\vendor',
+            0 => __DIR__ . '/../..' . '/vendor',
         ),
         'Twig\\' => 
         array (
@@ -72,35 +72,13 @@ class ComposerStaticInit5edeb43f1c9ce6d69208416a85213fd5
     );
 
     public static $classMap = array (
-        'App\\Controller\\AuthenticateController' => __DIR__ . '/../..' . '/src/Controller/AuthenticateController.php',
-        'App\\Controller\\BlogController' => __DIR__ . '/../..' . '/src/Controller/BlogController.php',
-        'App\\Controller\\ContactController' => __DIR__ . '/../..' . '/src/Controller/ContactController.php',
-        'App\\Controller\\DonationController' => __DIR__ . '/../..' . '/src/Controller/DonationController.php',
         'App\\Controller\\HomeController' => __DIR__ . '/../..' . '/src/Controller/HomeController.php',
-        'App\\Controller\\PokemonController' => __DIR__ . '/../..' . '/src/Controller/PokemonController.php',
-        'App\\Controller\\ProductCategory' => __DIR__ . '/../..' . '/src/Controller/ProductCategory.php',
-        'App\\Controller\\ProductController' => __DIR__ . '/../..' . '/src/Controller/ProductController.php',
-        'App\\Controller\\StoreController' => __DIR__ . '/../..' . '/src/Controller/StoreController.php',
-        'App\\Entity\\Article' => __DIR__ . '/../..' . '/src/Entity/Article.php',
+        'App\\Entity\\Animal' => __DIR__ . '/../..' . '/src/Entity/Animal.php',
         'App\\Entity\\Contact' => __DIR__ . '/../..' . '/src/Entity/Contact.php',
-        'App\\Entity\\Don' => __DIR__ . '/../..' . '/src/Entity/Don.php',
-        'App\\Entity\\Pokemon' => __DIR__ . '/../..' . '/src/Entity/Pokemon.php',
-        'App\\Entity\\PokemonRace' => __DIR__ . '/../..' . '/src/Entity/PokemonRace.php',
-        'App\\Entity\\PokemonRarity' => __DIR__ . '/../..' . '/src/Entity/PokemonRarity.php',
-        'App\\Entity\\PokemonType' => __DIR__ . '/../..' . '/src/Entity/PokemonType.php',
-        'App\\Entity\\Product' => __DIR__ . '/../..' . '/src/Entity/Product.php',
-        'App\\Entity\\ProductCategory' => __DIR__ . '/../..' . '/src/Entity/ProductCategory.php',
         'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
-        'App\\Manager\\ArticleManager' => __DIR__ . '/../..' . '/src/Manager/ArticleManager.php',
+        'App\\Manager\\AnimalManager' => __DIR__ . '/../..' . '/src/Manager/AnimalManager.php',
         'App\\Manager\\ContactManager' => __DIR__ . '/../..' . '/src/Manager/ContactManager.php',
-        'App\\Manager\\DonManager' => __DIR__ . '/../..' . '/src/Manager/DonManager.php',
         'App\\Manager\\ManagerInterface' => __DIR__ . '/../..' . '/src/Manager/ManagerInterface.php',
-        'App\\Manager\\PokemonManager' => __DIR__ . '/../..' . '/src/Manager/PokemonManager.php',
-        'App\\Manager\\PokemonRaceManager' => __DIR__ . '/../..' . '/src/Manager/PokemonRaceManager.php',
-        'App\\Manager\\PokemonRarityManager' => __DIR__ . '/../..' . '/src/Manager/PokemonRarityManager.php',
-        'App\\Manager\\PokemonTypeManager' => __DIR__ . '/../..' . '/src/Manager/PokemonTypeManager.php',
-        'App\\Manager\\ProductCategoryManager' => __DIR__ . '/../..' . '/src/Manager/ProductCategoryManager.php',
-        'App\\Manager\\ProductManager' => __DIR__ . '/../..' . '/src/Manager/ProductManager.php',
         'App\\Manager\\UserManager' => __DIR__ . '/../..' . '/src/Manager/UserManager.php',
         'App\\Utils\\DatabaseHandler' => __DIR__ . '/../..' . '/src/Utils/DatabaseHandler.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

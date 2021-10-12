@@ -6,10 +6,7 @@
     }
   },
   "config": {
-    "optimize-autoloader": true,
-    "platform": {
-      "php": "7.4"
-    }
+    "optimize-autoloader": true
   },
   "require": {
     "symfony/http-foundation": "^5.3",

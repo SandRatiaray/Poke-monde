@@ -14,10 +14,8 @@ try {
     // Récupérer les statements
     $statementsManager = new Statements();
     $userStatements = $statementsManager->getUserStatements();
-    $pokemonStatements = $statementsManager->getPokemonStatements();
-    $productStatements = $statementsManager->getProductStatements();
-    $articleStatements = $statementsManager->getArticleStatements();
-    $statements = [$userStatements, $pokemonStatements, $productStatements, $articleStatements];
+    $animalStatements = $statementsManager->getPetsStatements();
+    $statements = [$userStatements, $animalStatements];
     foreach ($statements as $statementPerType) {
         // Ajout des tables
         foreach ($statementPerType as $statement) {

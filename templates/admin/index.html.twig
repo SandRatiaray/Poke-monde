@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard Admin{% endblock %}
+
+ {% block stylesheets %}
+     <!-- Core theme CSS (includes Bootstrap)-->
+     <link href="../assets/css/template.css" rel="stylesheet"/>
+     <link href="../assets/css/animalde.css" rel="stylesheet"/>
+ {% endblock %}
+{% block body %}
+    <section class="py-5">
+        <div class="text-center">
+            <h1 class="text-center">Bienvenue sur l'admin</h1>
+        </div>
+        <div class="row  mt-5">
+            <div class="col-3 offset-md-3">
+                <div class="card">
+                    <img class="card-img-top"
+                         src="https://www.zooplus.fr/magazine/wp-content/uploads/2019/10/golden-retriever-qui-saute-dans-un-pr%C3%A9-1024x682.jpg"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Ajouter un animal</h4>
+                        <p class="card-text">
+                            Ici vous pouvez ajouter un nouvel animal dans votre pensionnat
+                        </p>
+                        <a href="animalNew" class="btn btn-success">Ajouter un animal</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 ">
+                <div class="card">
+                    <img class="card-img-top"
+                         src="https://images.pexels.com/photos/8088495/pexels-photo-8088495.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Ajouter un utilisateur</h4>
+                        <p class="card-text">
+                            Ici vous pouvez ajouter un nouvel utilisateur dans notre pensionnat
+                        </p>
+                        <a href="inscription" class="btn btn-success">Ajouter un Utilisateur</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 offset-md-3 my-5">
+                <h2 class="text-center my-3">Listes des utilsateurs</h2>
+                <table class="table table-hover text-dark">
+                    <thead class="bg-dark text-white">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom & Prénom</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Adresse</th>
+                        <th>Code postal</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.last_name }} {{ user.first_name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.tel }}</td>
+                            <td>{{ user.address }}</td>
+                            <td>{{ user.zip_code }}</td>
+                            <td>{{ user.roles  == 2 ? "Admin" : "User" }}</td>
+                            <td colspan="2"><a href="editUser?id={{ user.id }}" type="button"
+                                               title="Éditer mon profil" class="btn btn-success">Éditer</a>
+                                <a href="supprimerUtilisateur?id={{ user.id }}" type="button" title="Supprimer"
+                                   class="btn btn-danger">Supprimer</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-6 offset-md-3 my-5">
+                <h2 class="text-center my-3">Listes des animaux</h2>
+                <table class="table table-hover text-dark">
+                    <thead class="bg-dark text-white">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Race</th>
+                        <th>Type</th>
+                        <th>Disponible</th>
+                        <th>Taille</th>
+                        <th>Poids</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for animal in animals %}
+                        <tr>
+                            <td>{{ animal.id }}</td>
+                            <td>{{ animal.name }}</td>
+                            <td>{{ animal.race }}</td>
+                            <td>{{ animal.type }}</td>
+                            <td>{{ (animal.available == 1 ) ? 'OUI' : 'NON' }}</td>
+                            <td>{{ animal.size }} cm</td>
+                            <td>{{ animal.weight}} kg</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+ {% block javascripts %}
+     <!-- Core theme JS-->
+     <script src="../assets/js/template.js"></script>
+     <script src="../assets/js/animalde.js"></script>
+ {% endblock %}

@@ -39,12 +39,14 @@ class ContactManager extends Manager implements ManagerInterface
      */
     public function add($entity)
     {
-        $statement = "INSERT INTO contact (message, user_id) 
-                        VALUES (:message, :user)";
+        $statement = "INSERT INTO contact (message, user_id, animal_id, created_at) 
+                        VALUES (:message, :user, :animal, :created_at)";
 
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":message", $entity->getMessage());
         $prepare->bindValue(":user", $entity->getUser());
+        $prepare->bindValue(":animal", $entity->getAnimal());
+        $prepare->bindValue(":created_at", $entity->getCreatedAt());
         $prepare->execute();
     }
 

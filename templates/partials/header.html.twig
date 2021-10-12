@@ -1,23 +1,26 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-5">
-        <a class="navbar-brand" href="../home/index.html.twig">Pokemonde</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <a class="navbar-brand" href="/">charityPets</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link" href="/pokemons">Pokemons</a></li>
-                <li class="nav-item"><a class="nav-link" href="/boutique">Boutique</a></li>
-                <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" href="/don">Don</a></li>
-                <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="/animaux">Animaux</a></li>
                 {% if not session.user %}
-                    <li class="nav-item"><a class="nav-link" title="Se connecter"  href="/connexion">Se connecter</a></li>
+                    <li class="nav-item"><a class="nav-link" title="Se connecter" href="/connexion">Se connecter</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" title="S'inscrire" href="/inscription">S'inscrire</a></li>
                 {% else %}
                     <li class="nav-item"><a class="nav-link" title="Mon compte" href="/profil">Mon compte</a></li>
-                    <li class="nav-item"><a class="nav-link" title="Déconnexion" href="/deconnexion">Se déconnecter</a></li>
-                {% endif%}
+                    {% if session.user.roles == 2 %}
+                        <li class="nav-item"><a class="nav-link" title="Admin" href="/admin">Admin</a></li>
+                    {% endif %}
+                    <li class="nav-item"><a class="nav-link" title="Déconnexion" href="/deconnexion">Se déconnecter</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>

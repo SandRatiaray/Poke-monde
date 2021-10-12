@@ -6,63 +6,68 @@ namespace App\Entity;
 
 class Contact
 {
-    /**
-     * id d'un contact
-     *
-     * Auto increment
-     * @var int
-     */
-    private int $id;
-    /**
-     * Message laissé par l'utilisateur
-     * @var $message
-     */
-    private string $message;
-    /**
-     * User
-     * @var int
-     */
-    private int $user;
 
-    /**
-     * @return int
-     */
+    private int $id;
+
+    private string|null $message;
+
+    private int|null $user;
+
+    private int|null $animal;
+
+    private \DateTime $created_at;
+
+    public function __construct()
+    {
+        $this->created_at = new \DateTime('now');
+    }
+
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->message;
     }
 
-    /**
-     * @param string 
-     */
-    public function setMessage(string $message): void
+
+    public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
-    /**
-     * @return int
-     */
-    public function getUser(): int
+    public function getUser(): ?int
     {
         return $this->user;
     }
 
-    /**
-     * @param int $user
-     */
-    public function setUser(int $user): void
+    public function setUser(?int $user): void
     {
         $this->user = $user;
     }
+
+    public function getAnimal(): ?int
+    {
+        return $this->animal;
+    }
+
+    public function setAnimal(?int $animal): void
+    {
+        $this->animal = $animal;
+    }
+
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTime $created_at): void
+    {
+        $this->created_at = $created_at;
+    }
+
     /**
      * Hydrate
      * @param array $contact

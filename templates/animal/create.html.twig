@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajouter un nouveau pokemon - Pokemonde{% endblock %}
+{% block title %}Ajouter un nouveau animal - animalde{% endblock %}
 
 {% block body %}
     <section class="py-5">
@@ -9,62 +9,48 @@
             <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
                 <div class="text-center mb-5">
                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-cloud-plus"></i></div>
-                    <h1 class="fw-bolder">Ajouter un nouvel Pokemon</h1>
+                    <h1 class="fw-bolder">Ajouter un nouvel Animal dans notre refuge</h1>
                 </div>
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6">
-                        <form id="contactForm" action="pokemonNew" method="post">
+                        <form id="contactForm" action="animalNew" method="post">
 
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" name="name" type="text" placeholder="Nom du pokemon" data-sb-validations="required" />
-                                <label for="name">Pokemon</label>
+                                <input class="form-control" id="name" name="name" type="text" placeholder="Nom du animal" data-sb-validations="required" />
+                                <label for="name">Animal</label>
                             </div>
                             <!-- NameSlug input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="nameSlug" name="nameSlug" type="text" placeholder="Slug du pokemon" data-sb-validations="required" />
-                                <label for="nameSlug">Pokemon Slug</label>
+                                <input class="form-control" id="nameSlug" name="nameSlug" type="text" placeholder="Slug du animal" data-sb-validations="required" />
+                                <label for="nameSlug">Animal Slug</label>
                             </div>
-                            <!-- Poids (kg) du pokemon-->
+                            <!-- Type de l'animal  -->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="weight" type="number" name="weight" step="0.01" placeholder="Poids du pokemon" data-sb-validations="required" />
+                                <input class="form-control" id="type" name="type" type="text" placeholder="Type de l'animal" data-sb-validations="required" />
+                                <label for="image">Type de l'animal</label>
+                            </div>
+                            <!-- Race de l'animal  -->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="race" name="race" type="text" placeholder="Race de l'animal" data-sb-validations="required" />
+                                <label for="image">Race de l'animal</label>
+                            </div>
+                            <!-- Poids (kg) du animal-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="weight" type="number" name="weight" step="0.01" placeholder="Poids du animal" data-sb-validations="required" />
                                 <label for="weight">Poids (kg)</label>
                             </div>
-                            <!-- Taille (kg) du pokemon-->
+                            <!-- Taille (kg) de l'animal-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="size" type="number" name="size" step="0.01" placeholder="Taille du pokemon" data-sb-validations="required" />
+                                <input class="form-control" id="size" type="number" name="size" step="0.01" placeholder="Taille du animal" data-sb-validations="required" />
                                 <label for="size">Taille (cm)</label>
                             </div>
-                            <!-- Image du pokemon -->
+                            <!-- Image de l'animal -->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="image" name="image" type="text" placeholder="Image du pokemon" data-sb-validations="required" />
-                                <label for="image">Image du pokemon</label>
+                                <input class="form-control" id="image" name="image" type="text" placeholder="Image du animal" data-sb-validations="required" />
+                                <label for="image">Image de l'animal</label>
                             </div>
-                            <!-- Type du pokemon -->
-                            <div class="form-floating mb-3">
-                                <select class="form-control" name="type" required>
-                                    {% for type in types %}
-                                    <option value="{{ type.id }}">{{ type.name }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <!-- Race du pokemon -->
-                            <div class="form-floating mb-3">
-                                <select class="form-control" name="race" required>
-                                    {% for race in races %}
-                                    <option value="{{ race.id }}">{{ race.name }} </option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <!-- Rareté du pokemon -->
-                            <div class="form-floating mb-3">
-                                <select class="form-control" name="rarity" required>
-                                    {% for rarity in raritys %}
-                                    <option value="{{ rarity.id }}">{{ rarity.name }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <!-- Rareté du pokemon -->
+                            <!-- Disponibilité -->
                             <div class="form-floating mb-3">
                                 <select class="form-control" name="available" required>
                                         <option value="1">OUI</option>

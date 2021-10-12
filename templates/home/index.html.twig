@@ -1,74 +1,73 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bienvenue sur Pokemonde
+{% block title %}Bienvenue sur Charity Pets
 {% endblock %}
 
 {% block body %}
-	<header class="bg-dark py-5">
-		<div class="container px-5">
-			<div class="row gx-5 align-items-center justify-content-center">
-				<div class="col-lg-8 align-items-center col-xl-7 col-xxl-6 text-center">
-					<h1 class="fw-bolder text-white text-left">BIENVENUE DANS
-					</h1>
-					<img class="lead fw-normal text-left mb-5" src='http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c32a.png' style="height: 100px;" class=' img-fluid '>
-					<img class="lead fw-normal text-left mb-5" src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1920px-International_Pok%C3%A9mon_logo.svg.png' style="height: 75px;" class=' img-fluid '>
-					<img class="lead fw-normal text-left mb-5" src='http://assets.stickpng.com/images/580b57fcd9996e24bc43c31c.png' style="height: 100px;" class=' img-fluid '>
-				</div>
-				<div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="https://www.wallpapertip.com/wmimgs/81-813351_pokemon-wallpaper-hd.jpg" alt="pokemons"/></div>
-			</div>
-		</div>
-	</header>
-	<section class="py-5">
-		<div class="container px-5 my-5">
-			<div class="row gx-5 justify-content-center">
-				<div class="col-lg-8 col-xl-6">
-					<div class="text-center">
-						<h1 class="fw-bolder">ADOPTEZ LES TOUS
-						</h1>
-						<img class="lead fw-normal text-muted mb-5" src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1920px-International_Pok%C3%A9mon_logo.svg.png' style="height: 75px;" class=' img-fluid '>
-					</div>
-				</div>
-				<!-- Pokemon section-->
-				<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-					{% for pokemon in pokemons %}
-						<div class="card m-3 col-md-3">
-							<img src="{{ pokemon.image }}" class="card-img-top img-fluid" style="height: 390px; width: 280px;" alt="...">
-							<div class="card-body">
-								<h5 class="card-title text-center">{{ pokemon.name|upper }}
-									<img src="pokeball.ico" style="height: 30px;" alt=""></h5>
-								<a href="pokemon/{{ pokemon.nameSlug }}" class="btn btn-primary align-items-center justify-content-center d-flex">Voir plus</a>
-							</div>
-						</div>
-					{% endfor %}
-				</div>
-			</div>
-			<!-- Description section-->
-			<div class="py-5 bg-light">
-				<div class="container px-5 my-5">
-					<div class="row gx-5 justify-content-center">
-						<div class="col-lg-10 col-xl-7">
-							<div class="fs-4 mb-4 fst-italic">
-								<h4 class="text-left">POKEMONDE est la première association de protection pokémon en France.</br>
-								Créée en 1845, elle a été reconnue d'utilité publique en 1860.</h4>
-							<p>Ses missions consistent à : 
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					Lutter contre la maltraitance et les abandons ​
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					Recueillir et héberger les pokemons abandonnés, perdus ou maltraités et leur trouver un foyer
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					Soigner les pokemons des propriétaires démunis 
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					Sensibiliser le grand public et en particulier les jeunes à la protection animale 
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					Responsabiliser les propriétaires de Pokemon
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					S'engager auprès des pouvoirs publics pour faire évoluer la cause animale</p>
-</div>
-						<div class="d-flex align-items-center justify-content-center">
-							<img class="rounded-circle me-3" src="https://lh3.googleusercontent.com/OfxqM5lkDTRod7Xdr2eIL7cZ50EdyTiIY_7ELZuas0qRPSDqlQEac86eqP4OEXf2a61JIUg=s85" alt="..."/>
-							<div class="fw-bold">
-								Hassan Derkaoui
-								<span class="fw-bold text-primary mx-1">/</span>
-								CEO, Pokemonde
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div></section>{% endblock %}
+    <header class="bg-dark py-5">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center justify-content-center">
+                <div class="col-lg-8 align-items-center col-xl-7 col-xxl-6 text-center">
+                    <h1 class="fw-bolder text-white text-left">WELCOME IN CHARITY PETS</h1>
+                </div>
+                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5"
+                                                                                   src="https://ad962edbae8ba7b03b7f-d10007df79b5b7a4e475a291e50a08cf.ssl.cf3.rackcdn.com/ouvrir-une-pension-canine/ouvrir-une-pension-canine.jpg"
+                                                                                   alt="pokemons"/></div>
+            </div>
+        </div>
+    </header>
+    <section class="py-5">
+    <div class="container px-5 my-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                <div class="text-center">
+                    <h1 class="fw-bolder">ADOPTEZ LES TOUS
+                    </h1>
+                    <img class="lead fw-normal text-muted mb-5"
+                         src='https://media.playmobil.com/i/playmobil/9275_product_detail/Pension%20des%20animaux%20?locale=fr-FR,fr,*&$pdp_product_main_xl$&strip=true&qlt=80&fmt.jpeg.chroma=1,1,1&unsharp=0,1,1,7&fmt.jpeg.interlaced=true'
+                         style="height: 75px;" class=' img-fluid '>
+                </div>
+            </div>
+            <!-- Animal section-->
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                {% for animal in animaux %}
+                    <div class="card m-3 col-md-3">
+                        <img src="{{ animal.image }}" class="card-img-top img-fluid"
+                             style="height: 390px; width: 280px;" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{ animal.name|upper }}</h5>
+                            <a href="animal?id={{ animal.id }}"
+                               class="btn btn-primary align-items-center justify-content-center d-flex">Voir plus</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Description section-->
+        <div class="py-5 bg-light">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-10 col-xl-7">
+                        <div class="fs-4 mb-4 fst-italic">
+                            <h4 class="text-left">charityPets est la première association de protection des animaux en
+                                France.</br>
+                                Créée en 1845, elle a été reconnue d'utilité publique en 1860.</h4>
+                            <p>Ses missions consistent à : S'engager auprès des pouvoirs publics pour faire évoluer la
+                                cause animale</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img class="rounded-circle me-3"
+                                 src="https://lh3.googleusercontent.com/OfxqM5lkDTRod7Xdr2eIL7cZ50EdyTiIY_7ELZuas0qRPSDqlQEac86eqP4OEXf2a61JIUg=s85"
+                                 alt="..."/>
+                            <div class="fw-bold">
+                                Hassan Derkaoui
+                                <span class="fw-bold text-primary mx-1">/</span>
+                                CEO, charityPets
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div></section>{% endblock %}

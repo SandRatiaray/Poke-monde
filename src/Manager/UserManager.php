@@ -56,8 +56,8 @@ class UserManager extends Manager implements ManagerInterface
      */
     public function add($entity)
     {
-        $statement = "INSERT INTO user (last_name, first_name, email, password, address, zip_code, tel) 
-                        VALUES (:lastname, :firstname, :email, :password, :address, :zipcode, :tel)";
+        $statement = "INSERT INTO user (last_name, first_name, email, password, address, zip_code, tel, roles) 
+                        VALUES (:lastname, :firstname, :email, :password, :address, :zipcode, :tel, :roles)";
 
         $prepare = $this->db->prepare($statement);
         $prepare->bindValue(":lastname", $entity->getLastName());
@@ -67,6 +67,7 @@ class UserManager extends Manager implements ManagerInterface
         $prepare->bindValue(":address", $entity->getAddress());
         $prepare->bindValue(":zipcode", $entity->getZipCode());
         $prepare->bindValue(":tel", $entity->getTel());
+        $prepare->bindValue(":roles", $entity->getRoles());
         $prepare->execute();
     }
 
@@ -81,7 +82,6 @@ class UserManager extends Manager implements ManagerInterface
                 last_name = :lastname,
                 first_name = :firstname,
                 email = :email,
-                password = :password,
                 address = :address,
                 zip_code = :zipcode,
                 tel = :tel 
@@ -91,7 +91,6 @@ class UserManager extends Manager implements ManagerInterface
         $prepare->bindValue(":lastname", $entity->getLastName());
         $prepare->bindValue(":firstname", $entity->getFirstName());
         $prepare->bindValue(":email", $entity->getEmail());
-        $prepare->bindValue(":password", $entity->getPassword());
         $prepare->bindValue(":address", $entity->getAddress());
         $prepare->bindValue(":zipcode", $entity->getZipCode());
         $prepare->bindValue(":tel", $entity->getTel());

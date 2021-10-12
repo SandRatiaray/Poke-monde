@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription - Pokemonde{% endblock %}
+{% block title %}Inscription - charityPets{% endblock %}
 
 {% block body %}
     <section class="py-5">
@@ -22,42 +22,49 @@
                         <form id="siginForm" action="inscription" method="POST">
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="last_name" type="text" name="lastName" placeholder="Entrer votre nom..." data-sb-validations="required" value="doe" />
+                                <input class="form-control" id="last_name" type="text" name="lastName" placeholder="Entrer votre nom..." data-sb-validations="required" />
                                 <label for="last_name">Nom</label>
                                 <div class="invalid-feedback" data-sb-feedback="last_name:required">Le nom est obligatoire.</div>
                             </div>
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="first_name" type="text" name="firstName" placeholder="Entrer votre prénom..." data-sb-validations="required" value="john" />
+                                <input class="form-control" id="first_name" type="text" name="firstName" placeholder="Entrer votre prénom..." data-sb-validations="required" />
                                 <label for="first_name">Prénom</label>
                                 <div class="invalid-feedback" data-sb-feedback="first_name:required">Le prénom est obligatoire.</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" name="email" placeholder="name@example.com" data-sb-validations="required,email" value="john@doe.fr" />
+                                <input class="form-control" id="email" type="email" name="email" placeholder="name@example.com" data-sb-validations="required,email"/>
                                 <label for="email">Email</label>
                                 <div class="invalid-feedback" data-sb-feedback="email:required">L'email est obligatoire.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">L'email n'est pas valide.</div>
                             </div>
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="password" type="password" name="password" placeholder="Entrer votre mot de passe..." data-sb-validations="required" value="1234" />
+                                <input class="form-control" id="password" type="password" name="password" placeholder="Entrer votre mot de passe..." data-sb-validations="required" />
                                 <label for="name">Mot de passe</label>
                                 <div class="invalid-feedback" data-sb-feedback="password:required">Le mot de passe est obligatoire.</div>
                             </div>
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="address" type="text" name="address" placeholder="Entrer votre adresse..." data-sb-validations="required" value="adqdsd" />
+                                <input class="form-control" id="address" type="text" name="address" placeholder="Entrer votre adresse..." data-sb-validations="required" />
                                 <label for="lastname">Adresse</label>
                                 <div class="invalid-feedback" data-sb-feedback="address:required">L'adresse est obligatoire.</div>
                             </div>
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="zipCode" type="text" name="zipCode" placeholder="Entrer votre code postal..." data-sb-validations="required" value="sqdsqds" />
+                                <input class="form-control" id="zipCode" type="text" name="zipCode" placeholder="Entrer votre code postal..." data-sb-validations="required" />
                                 <label for="zip_code">Code postal</label>
                                 <div class="invalid-feedback" data-sb-feedback="zip_code:required">Le code postal est obligatoire.</div>
                             </div>
                             <!-- Phone number input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="tel" type="tel" name="tel" placeholder="(+33) 6 66 66 66 66" data-sb-validations="required" value="sqdsqdsq" />
+                                <input class="form-control" id="tel" type="tel" name="tel" placeholder="(+33) 6 66 66 66 66" data-sb-validations="required" />
                                 <label for="tel">Téléphone</label>
                                 <div class="invalid-feedback" data-sb-feedback="tel:required">Le numéro de téléphone est obligatoire.</div>
+                            </div>
+                            <!-- ROLES -->
+                            <div class="form-floating mb-3">
+                                <select class="form-select" name="roles" required aria-label="Default select example">
+                                    <option selected value="1">Utilisateur</option>
+                                    <option value="2">Admin</option>
+                                </select>
                             </div>
                             <!-- Submit success message-->
                             <!---->
